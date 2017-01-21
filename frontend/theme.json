@@ -1,0 +1,52 @@
+{
+	"name" : "clipone",
+	"title":"Clip One",
+	"version" : "1.0.0",
+	"author" : {
+		"name" : "Amir.h Yeganemehr",
+		"website" : "http://www.yeganemehr.ir"
+	},
+	"autoload":"autoloader.json",
+	"languages":{
+		"fa_IR" : "langs/fa_IR.json"
+	},
+	"assets":[
+	],
+	"views":[
+		{
+			"name":"\\themes\\clipone\\views\\sms\\sent\\listview",
+			"parent":"\\packages\\sms\\views\\sent\\listview",
+			"file":"html/sent/list.php"
+		},
+		{
+			"name":"\\themes\\clipone\\views\\sms\\get\\listview",
+			"parent":"\\packages\\sms\\views\\get\\listview",
+			"file":"html/get/list.php"
+		},
+		{
+			"name":"\\themes\\clipone\\views\\sms\\send",
+			"parent":"\\packages\\sms\\views\\send",
+			"file":"html/send.php"
+		},
+		{
+			"name":"\\themes\\clipone\\views\\sms\\settings\\gateways\\listview",
+			"parent":"\\packages\\sms\\views\\settings\\gateways\\listview",
+			"file":"html/settings/gateways/list.php"
+		},
+		{
+			"name":"\\themes\\clipone\\views\\sms\\settings\\gateways\\add",
+			"parent":"\\packages\\sms\\views\\settings\\gateways\\add",
+			"file":"html/settings/gateways/add.php"
+		},
+		{
+			"name":"\\themes\\clipone\\views\\sms\\settings\\gateways\\delete",
+			"parent":"\\packages\\sms\\views\\settings\\gateways\\delete",
+			"file":"html/settings/gateways/delete.php"
+		},
+		{
+			"name":"\\themes\\clipone\\views\\sms\\settings\\gateways\\edit",
+			"parent":"\\packages\\sms\\views\\settings\\gateways\\edit",
+			"file":"html/settings/gateways/edit.php"
+		}
+	]
+}

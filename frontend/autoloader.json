@@ -1,0 +1,36 @@
+{
+	"files":[
+		{
+			"classes":["events\\sms\\settings\\gateways\\add\\beforeLoad"],
+			"file":"libraries/events/settings/gateways.php"
+		},
+		{
+			"classes":["views\\sms\\sent\\listview"],
+			"file":"views/sent.php"
+		},
+		{
+			"classes":["views\\sms\\get\\listview"],
+			"file":"views/get.php"
+		},
+		{
+			"classes":["views\\sms\\send"],
+			"file":"views/send.php"
+		},
+		{
+			"classes":["views\\sms\\settings\\gateways\\listview"],
+			"file":"views/settings/gateways/list.php"
+		},
+		{
+			"classes":["views\\sms\\settings\\gateways\\add"],
+			"file":"views/settings/gateways/add.php"
+		},
+		{
+			"classes":["views\\sms\\settings\\gateways\\delete"],
+			"file":"views/settings/gateways/delete.php"
+		},
+		{
+			"classes":["views\\sms\\settings\\gateways\\edit"],
+			"file":"views/settings/gateways/edit.php"
+		}
+	]
+}

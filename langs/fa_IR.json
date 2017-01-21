@@ -1,0 +1,15 @@
+{
+	"author": {
+		"name" : "Amir.h Yeganemehr",
+		"website" : "http://yeganemehr.ir/"
+	},
+	"rtl": true,
+	"phrases":{
+		"sms.get.bySenderNumber": "پیامک دریافت شده از {senderNumber}",
+		"sms.get.description": "دریافت شده در {receive_at} ، متن: {text}",
+		"sms.sent.byReceiverNumber": "پیامک ارسال شده به {receiverNumber}",
+		"sms.sent.description": "ارسال شده در {send_at} ، متن: {text}"
+
+
+	}
+}
