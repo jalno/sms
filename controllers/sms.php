@@ -308,7 +308,10 @@ class sms extends controller{
 					$sms->fromNumber($inputs['from']);
 				}
 				$sms->now();
-				if($sms->send($inputs['text']) == sent::sent){
+				$sms->template("ticketing_ticket_add", array(
+					'ticket_message' => \packages\ticketing\ticket_message::byID(10)
+				));
+				if($sms->send() == sent::sent){
 					$this->response->setStatus(true);
 					$this->response->Go(userpanel\url('sms/sent'));
 				}else{

@@ -49,14 +49,19 @@
 		"sms.number.delete":"حذف شماره",
 		"sms.gateway.delete.warning":"آیا شما از حذف سامانه پیامک به شناسه {gateway} اطمینان دارید؟تمام آیتم های مرتبط بدون امکان بازیابی حذف می شوند.",
 		"settings.sms.gateway.numbers":"شماره ها",
-		"usertype.permissions.sms_sent_list": "لیست پیامک های ارسالی",
-		"usertype.permissions.sms_sent_list_anonymous": "لیست پیامک های ارسالی ناشناس",
-		"usertype.permissions.sms_get_list": "لیست پیامک های دریافتی",
-		"usertype.permissions.sms_get_list_anonymous": "لیست پیامک های دریافتی ناشناس",
-		"usertype.permissions.sms_send": "ارسال پیامک",
-		"usertype.permissions.sms_settings_gateways_list": "لیست پنل های پیامک",
-		"usertype.permissions.sms_settings_gateways_add": "افزودن پنل پیامک",
-		"usertype.permissions.sms_settings_gateways_edit": "ویرایش پنل پیامک",
-		"usertype.permissions.sms_settings_gateways_delete": "حذف پنل پیامک"
+		"settings.sms.templates":"قالب های پیامک",
+		"settings.sms.templates.add":"افزودن قالب",
+		"sms.template.id":"شناسه",
+		"sms.template.name":"نام قالب",
+		"sms.template.lang":"زبان",
+		"sms.template.status" : "وضعیت",
+		"sms.template.status.active":"فعال",
+		"sms.template.status.deactive":"غیرفعال",
+		"sms.template.text":"متن قالب",
+		"sms.template.variable.key":"نام متغیر",
+		"sms.template.variable.description":"توضیحات",
+		"settings.sms.templates.delete":"حذف قالب پیامک",
+		"sms.template.delete.warning":"آیا شما از حذف قالب با شناسه {template} اطمینان دارید؟",
+		"settings.sms.templates.edit":"ویرایش قالب پیامک"
 	}
 }

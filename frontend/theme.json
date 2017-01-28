@@ -47,6 +47,26 @@
 			"name":"\\themes\\clipone\\views\\sms\\settings\\gateways\\edit",
 			"parent":"\\packages\\sms\\views\\settings\\gateways\\edit",
 			"file":"html/settings/gateways/edit.php"
+		},
+		{
+			"name":"\\themes\\clipone\\views\\sms\\settings\\templates\\listview",
+			"parent":"\\packages\\sms\\views\\settings\\templates\\listview",
+			"file":"html/settings/templates/list.php"
+		},
+		{
+			"name":"\\themes\\clipone\\views\\sms\\settings\\templates\\add",
+			"parent":"\\packages\\sms\\views\\settings\\templates\\add",
+			"file":"html/settings/templates/add.php"
+		},
+		{
+			"name":"\\themes\\clipone\\views\\sms\\settings\\templates\\delete",
+			"parent":"\\packages\\sms\\views\\settings\\templates\\delete",
+			"file":"html/settings/templates/delete.php"
+		},
+		{
+			"name":"\\themes\\clipone\\views\\sms\\settings\\templates\\edit",
+			"parent":"\\packages\\sms\\views\\settings\\templates\\edit",
+			"file":"html/settings/templates/edit.php"
 		}
 	]
 }

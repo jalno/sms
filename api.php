@@ -3,6 +3,7 @@ namespace packages\sms;
 use \packages\base\utility\safe;
 use \packages\base\options;
 use \packages\base\events;
+use \packages\base\translator;
 use \packages\userpanel\user;
 use \packages\sms\sent;
 use \packages\sms\template;
@@ -26,8 +27,11 @@ class api{
 		$template = new template();
 		$template->where('name', $name);
 		$template->where('lang', $lang);
-		$template->getOne();
-		$this->message = $template->id ? str_replace(array_keys($parameters), array_values($parameters), $template->text) : null;
+		if($template = $template->getOne()){
+			$this->message = $template->render($parameters);
+		}else{
+			$this->message = '';
+		}
 		return $this;
 	}
 	public function to($receiver_number, user $receiver_user = null){

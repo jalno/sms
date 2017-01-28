@@ -39,10 +39,13 @@
 			"classes":["controllers\\settings\\gateways"],
 			"file":"controllers/settings/gateways.php"
 		},
-
+		{
+			"classes":["controllers\\settings\\templates"],
+			"file":"controllers/settings/templates.php"
+		},
 		{
 			"classes":["template"],
-			"file":"libraries/sms/template.php"
+			"file":"libraries/template/template.php"
 		},
 		{
 			"classes":["sent"],
@@ -88,6 +91,10 @@
 			"file":"libraries/events/gateway/exceptions.php"
 		},
 		{
+			"classes":["events\\templates"],
+			"file":"libraries/events/templates/templates.php"
+		},
+		{
 			"classes":["events\\send"],
 			"file":"libraries/events/sms/send.php"
 		},
@@ -122,6 +129,22 @@
 		{
 			"classes":["views\\settings\\gateways\\edit"],
 			"file":"views/settings/gateways/edit.php"
+		},
+		{
+			"classes":["views\\settings\\templates\\listview"],
+			"file":"views/settings/templates/list.php"
+		},
+		{
+			"classes":["views\\settings\\templates\\add"],
+			"file":"views/settings/templates/add.php"
+		},
+		{
+			"classes":["views\\settings\\templates\\delete"],
+			"file":"views/settings/templates/delete.php"
+		},
+		{
+			"classes":["views\\settings\\templates\\edit"],
+			"file":"views/settings/templates/edit.php"
 		},
 		{
 			"classes":["api"],

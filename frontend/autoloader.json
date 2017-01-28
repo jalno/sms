@@ -31,6 +31,22 @@
 		{
 			"classes":["views\\sms\\settings\\gateways\\edit"],
 			"file":"views/settings/gateways/edit.php"
+		},
+		{
+			"classes":["views\\sms\\settings\\templates\\listview"],
+			"file":"views/settings/templates/list.php"
+		},
+		{
+			"classes":["views\\sms\\settings\\templates\\add"],
+			"file":"views/settings/templates/add.php"
+		},
+		{
+			"classes":["views\\sms\\settings\\templates\\delete"],
+			"file":"views/settings/templates/delete.php"
+		},
+		{
+			"classes":["views\\sms\\settings\\templates\\edit"],
+			"file":"views/settings/templates/edit.php"
 		}
 	]
 }

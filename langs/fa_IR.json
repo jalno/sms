@@ -8,7 +8,20 @@
 		"sms.get.bySenderNumber": "پیامک دریافت شده از {senderNumber}",
 		"sms.get.description": "دریافت شده در {receive_at} ، متن: {text}",
 		"sms.sent.byReceiverNumber": "پیامک ارسال شده به {receiverNumber}",
-		"sms.sent.description": "ارسال شده در {send_at} ، متن: {text}"
+		"sms.sent.description": "ارسال شده در {send_at} ، متن: {text}",
+		"usertype.permissions.sms_sent_list": "لیست پیامک های ارسالی",
+		"usertype.permissions.sms_sent_list_anonymous": "لیست پیامک های ارسالی ناشناس",
+		"usertype.permissions.sms_get_list": "لیست پیامک های دریافتی",
+		"usertype.permissions.sms_get_list_anonymous": "لیست پیامک های دریافتی ناشناس",
+		"usertype.permissions.sms_send": "ارسال پیامک",
+		"usertype.permissions.sms_settings_gateways_list": "لیست پنل های پیامک",
+		"usertype.permissions.sms_settings_gateways_add": "افزودن پنل پیامک",
+		"usertype.permissions.sms_settings_gateways_edit": "ویرایش پنل پیامک",
+		"usertype.permissions.sms_settings_gateways_delete": "حذف پنل پیامک",
+		"usertype.permissions.sms_settings_templates_list": "لیست قالب های پیامک",
+		"usertype.permissions.sms_settings_templates_add": "افزودن قالب پیامک",
+		"usertype.permissions.sms_settings_templates_edit": "ویرایش قالب پیامک",
+		"usertype.permissions.sms_settings_templates_delete": "حذف قالب پیامک"
 
 
 	}

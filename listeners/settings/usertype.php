@@ -13,6 +13,10 @@ class usertype{
 			"settings_gateways_add",
 			"settings_gateways_edit",
 			"settings_gateways_delete",
+			"settings_templates_list",
+			"settings_templates_add",
+			"settings_templates_edit",
+			"settings_templates_delete"
 		);
 		foreach($permissions as $permission){
 			permissions::add('sms_'.$permission);
