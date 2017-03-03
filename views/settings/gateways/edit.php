@@ -4,7 +4,7 @@ use \packages\sms\gateway;
 use \packages\sms\events\gateways;
 use \packages\userpanel\views\form;
 class edit extends form{
-	public function setGateways(gateways $gateways){
+	public function setGateways($gateways){
 		$this->setData($gateways, "gateways");
 	}
 	protected function getGateways(){
@@ -15,6 +15,12 @@ class edit extends form{
 		$this->setDataForm($gateway->toArray());
 		foreach($gateway->params as $param){
 			$this->setDataForm($param->value, $param->name);
+		}
+		foreach($this->getGateways() as $g){
+			if($g->getHandler() == $gateway->handler){
+				$this->setDataForm($g->getName(), "gateway");
+				break;
+			}
 		}
 	}
 	protected function getGateway(){

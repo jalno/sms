@@ -32,7 +32,7 @@ class edit extends editView{
 	}
 	public function getGatewaysForSelect(){
 		$options = array();
-		foreach($this->getGateways()->get() as $gateway){
+		foreach($this->getGateways() as $gateway){
 			$title = translator::trans('sms.gateway.'.$gateway->getName());
 			$options[] = array(
 				'value' => $gateway->getName(),
