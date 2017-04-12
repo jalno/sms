@@ -17,11 +17,8 @@ class listview extends sentList{
 	function __beforeLoad(){
 		$this->setTitle(translator::trans('sms.sent'));
 		navigation::active("sms/sent");
-		$this->addAssets();
+		$this->addBodyClass('smslist');
 		$this->setUserInput();
-	}
-	private function addAssets(){
-		$this->addJSFile(theme::url('assets/js/pages/sent.list.js'));
 	}
 	protected function getStatusForSelect(){
 		return array(

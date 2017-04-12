@@ -5,8 +5,6 @@ use \packages\base\translator;
 use \packages\userpanel;
 use \packages\userpanel\user;
 use \packages\userpanel\date;
-
-use \themes\clipone\utility;
 $this->the_header();
 ?>
 <div class="row">
@@ -75,7 +73,7 @@ $this->the_header();
 		<h4 class="modal-title"><?php echo translator::trans('search'); ?></h4>
 	</div>
 	<div class="modal-body">
-		<form id="sms_sent_search" class="form-horizontal" action="<?php echo userpanel\url("sms/sent"); ?>" method="GET">
+		<form id="smslist_search" class="form-horizontal" action="<?php echo userpanel\url("sms/sent"); ?>" method="GET">
 			<input type="hidden" name="user" value="">
 			<?php
 			$this->setHorizontalForm('sm-3','sm-9');
