@@ -19,11 +19,9 @@ class add extends addView{
 		$this->setTitle(translator::trans("settings.sms.gateways.add"));
 		$this->setNavigation();
 		$this->addAssets();
+		$this->addBodyClass('sms_gateways');
 	}
 	public function addAssets(){
-		$this->addJSFile(theme::url('assets/plugins/jquery-validation/dist/jquery.validate.min.js'));
-		$this->addJSFile(theme::url('assets/plugins/bootstrap-inputmsg/bootstrap-inputmsg.min.js'));
-		$this->addJSFile(theme::url('assets/js/pages/add.js'));
 		$this->addCSSFile(theme::url('assets/css/pages/add.css'));
 	}
 	private function setNavigation(){
