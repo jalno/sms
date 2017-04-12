@@ -308,17 +308,11 @@ class sms extends controller{
 					$sms->fromNumber($inputs['from']);
 				}
 				$sms->now();
-				if($sms->send() == sent::sent){
-					$this->response->setStatus(true);
-					$this->response->Go(userpanel\url('sms/sent'));
-				}else{
+				if($sms->send($inputs['text']) != sent::sent){
 					throw new sendException();
-
 				}
-
-
-
-
+				$this->response->setStatus(true);
+				$this->response->Go(userpanel\url('sms/sent'));
 			}catch(inputValidation $error){
 				$view->setFormError(FormError::fromException($error));
 			}catch(sendException $error){
