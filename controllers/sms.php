@@ -1,8 +1,6 @@
 <?php
 namespace packages\sms\controllers;
 use \packages\base;
-use \packages\base\frontend\theme;
-use \packages\base\NotFound;
 use \packages\base\http;
 use \packages\base\db;
 use \packages\base\db\parenthesis;
@@ -116,34 +114,34 @@ class sms extends controller{
 				}
 				db::where($parenthesis);
 			}
+			if($sent_list_anonymous){
+				db::join("userpanel_users", "userpanel_users.id=sms_sent.receiver_user", "left");
+				$parenthesis = new parenthesis();
+				$parenthesis->where("userpanel_users.type",  $types, 'in');
+				$parenthesis->where("sms_sent.receiver_user", null, 'is','or');
+				db::where($parenthesis);
+			}else{
+				db::join("userpanel_users", "userpanel_users.id=sms_sent.receiver_user", "inner");
+				if($types){
+					db::where("userpanel_users.type", $types, 'in');
+				}else{
+					db::where("userpanel_users.id", authentication::getID());
+				}
+			}
+			db::orderBy('sms_sent.id', ' DESC');
+			db::pageLimit($this->items_per_page);
+			$items = db::paginate('sms_sent', $this->page, array("sms_sent.*"));
+			$view->setPaginate($this->page, db::totalCount(), $this->items_per_page);
+			$sents = array();
+			foreach($items  as $item){
+				$sents[] = new sent($item);
+			}
+			$view->setDataList($sents);
 		}catch(inputValidation $error){
 			$view->setFormError(FormError::fromException($error));
 			$this->response->setStatus(false);
 		}
 		$view->setDataForm($this->inputsvalue($inputs));
-		if($sent_list_anonymous){
-			db::join("userpanel_users", "userpanel_users.id=sms_sent.receiver_user", "left");
-			$parenthesis = new parenthesis();
-			$parenthesis->where("userpanel_users.type",  $types, 'in');
-			$parenthesis->where("sms_sent.receiver_user", null, 'is','or');
-			db::where($parenthesis);
-		}else{
-			db::join("userpanel_users", "userpanel_users.id=sms_sent.receiver_user", "inner");
-			if($types){
-				db::where("userpanel_users.type", $types, 'in');
-			}else{
-				db::where("userpanel_users.id", authentication::getID());
-			}
-		}
-		db::orderBy('sms_sent.id', ' DESC');
-		db::pageLimit($this->items_per_page);
-		$items = db::paginate('sms_sent', $this->page, array("sms_sent.*"));
-		$view->setPaginate($this->page, db::totalCount(), $this->items_per_page);
-		$sents = array();
-		foreach($items  as $item){
-			$sents[] = new sent($item);
-		}
-		$view->setDataList($sents);
 
 		$this->response->setStatus(true);
 		$this->response->setView($view);
@@ -230,34 +228,34 @@ class sms extends controller{
 				}
 				db::where($parenthesis);
 			}
+			if($get_list_anonymous){
+				db::join("userpanel_users", "userpanel_users.id=sms_get.sender_user", "left");
+				$parenthesis = new parenthesis();
+				$parenthesis->where("userpanel_users.type",  $types, 'in');
+				$parenthesis->where("sms_get.sender_user", null, 'is','or');
+				db::where($parenthesis);
+			}else{
+				db::join("userpanel_users", "userpanel_users.id=sms_get.sender_user", "inner");
+				if($types){
+					db::where("userpanel_users.type", $types, 'in');
+				}else{
+					db::where("userpanel_users.id", authentication::getID());
+				}
+			}
+			db::orderBy('sms_get.id', ' DESC');
+			db::pageLimit($this->items_per_page);
+			$items = db::paginate('sms_get', $this->page, array("sms_get.*"));
+			$view->setPaginate($this->page, db::totalCount(), $this->items_per_page);
+			$gets = array();
+			foreach($items  as $item){
+				$gets[] = new get($item);
+			}
+			$view->setDataList($gets);
 		}catch(inputValidation $error){
 			$view->setFormError(FormError::fromException($error));
 			$this->response->setStatus(false);
 		}
 		$view->setDataForm($this->inputsvalue($inputs));
-		if($get_list_anonymous){
-			db::join("userpanel_users", "userpanel_users.id=sms_get.sender_user", "left");
-			$parenthesis = new parenthesis();
-			$parenthesis->where("userpanel_users.type",  $types, 'in');
-			$parenthesis->where("sms_get.sender_user", null, 'is','or');
-			db::where($parenthesis);
-		}else{
-			db::join("userpanel_users", "userpanel_users.id=sms_get.sender_user", "inner");
-			if($types){
-				db::where("userpanel_users.type", $types, 'in');
-			}else{
-				db::where("userpanel_users.id", authentication::getID());
-			}
-		}
-		db::orderBy('sms_get.id', ' DESC');
-		db::pageLimit($this->items_per_page);
-		$items = db::paginate('sms_get', $this->page, array("sms_get.*"));
-		$view->setPaginate($this->page, db::totalCount(), $this->items_per_page);
-		$gets = array();
-		foreach($items  as $item){
-			$gets[] = new get($item);
-		}
-		$view->setDataList($gets);
 
 		$this->response->setStatus(true);
 		$this->response->setView($view);
