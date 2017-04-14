@@ -25,6 +25,22 @@ class sent extends dbObject{
 		'receiver_user' => array('hasOne', 'packages\\userpanel\\user', 'receiver_user'),
 		'params' => array('hasMany', 'packages\\sms\\sent\\param', 'sms'),
 	);
+	private function processData($data){
+		$newdata = array();
+		if(is_array($data)){
+			if(isset($data['params'])){
+				foreach($data['params'] as $name => $value){
+					$this->tmparams[$name] = new param(array(
+						'name' => $name,
+						'value' => $value
+					));
+				}
+				unset($data['params']);
+			}
+			$newdata = $data;
+		}
+		return $newdata;
+	}
 	public function preLoad($data){
 		if(!isset($data['send_at'])){
 			$data['send_at'] = time();
@@ -60,12 +76,22 @@ class sent extends dbObject{
 			$param->value = $value;
 		}
 
-		if(!$this->id){
+		if(!$this->id or $this->isNew){
 			$this->tmparams[$name] = $param;
 		}else{
 			$param->sms = $this->id;
 			return $param->save();
 		}
+	}
+	public function save($data = null) {
+		if($return = parent::save($data)){
+			foreach($this->tmparams as $param){
+				$param->sms = $this->id;
+				$param->save();
+			}
+			$this->tmparams = array();
+		}
+		return $return;
 	}
 	public function send(){
 		$this->status = self::sending;
