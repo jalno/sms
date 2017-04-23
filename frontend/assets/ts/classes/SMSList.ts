@@ -1,6 +1,6 @@
 import * as $ from "jquery";
 import "jquery-ui/ui/widgets/autocomplete.js";
-import {Router, AjaxResponse} from "webuilder";
+import {Router, webuilder} from "webuilder";
 interface user{
 	id:number;
 	name:string;
@@ -8,7 +8,7 @@ interface user{
 	email:string;
 	cellphone:string;
 }
-interface searchResponse extends AjaxResponse{
+interface searchResponse extends webuilder.AjaxResponse{
 	items: user[];
 }
 export class SMSList{
