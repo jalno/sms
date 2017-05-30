@@ -157,6 +157,14 @@
 		{
 			"classes":["listeners\\search"],
 			"file":"listeners/search.php"
+		},
+		{
+			"classes":["listeners\\notifications"],
+			"file":"listeners/notifications.php"
+		},
+		{
+			"classes":["notifications\\channel"],
+			"file":"libraries/notifications/channel.php"
 		}
 	]
 }
