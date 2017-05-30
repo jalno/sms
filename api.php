@@ -16,6 +16,7 @@ class api{
 	private $receiver_number;
 	private $receiver_user;
 	private $sender_user;
+	private $sender_number;
 	private $time;
 	public function template($name,$parameters = array(),$lang = null){
 		if($lang === null){
