@@ -14,7 +14,7 @@ class send extends smsend{
 	function __beforeLoad(){
 		$this->setTitle(translator::trans('sms.send'));
 		$this->setNavigation();
-
+		$this->addBodyClass('smsSend');
 	}
 	protected function getNumbersForSelect(){
 		$options = array();

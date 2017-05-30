@@ -17,17 +17,7 @@ class edit extends editView{
 	function __beforeLoad(){
 		$this->setTitle(translator::trans("settings.sms.templates.edit"));
 		$this->setNavigation();
-		$this->addAssets();
-	}
-	public function addAssets(){
-		$this->addCSSFile(theme::url('assets/plugins/select2/dist/css/select2.min.css'));
-		$this->addCSSFile(theme::url('assets/plugins/select2-bootstrap-theme/dist/css/select2-bootstrap.min.css'));
-		$this->addJSFile(theme::url('assets/plugins/select2/dist/js/select2.full.min.js'));
-		$this->addJSFile(theme::url('assets/plugins/select2/dist/js/i18n/fa.js'));
-		$this->addJSFile(theme::url('assets/plugins/jquery-validation/dist/jquery.validate.min.js'));
-		$this->addJSFile(theme::url('assets/plugins/bootstrap-inputmsg/bootstrap-inputmsg.min.js'));
-		$this->addJSFile(theme::url('assets/js/pages/templates.js'));
-		$this->addCSSFile(theme::url('assets/css/pages/templates.css'));
+		$this->addBodyClass('sms_templates');
 	}
 	private function setNavigation(){
 		navigation::active("settings/sms/templates");

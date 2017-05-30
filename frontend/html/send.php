@@ -14,7 +14,7 @@ $this->the_header();
 				</div>
             </div>
             <div class="panel-body">
-                <form class="create_form " action="<?php echo userpanel\url('sms/send') ?>" method="post">
+                <form id="send_sms" action="<?php echo userpanel\url('sms/send') ?>" method="post">
 					<?php
 					$this->createField(array(
 						'type' => 'select',

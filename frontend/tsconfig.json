@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+		"module": "commonjs",
+   		"target": "es5",
+		"sourceMap": false,
+		"removeComments": true
+    },
+	"files": [
+        "./assets/ts/classes/SMSList.ts",
+        "./assets/ts/classes/Gateways.ts",
+        "./assets/ts/classes/Templates.ts",
+        "./assets/ts/Main.ts"
+    ]
+}

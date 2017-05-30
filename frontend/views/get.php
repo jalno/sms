@@ -17,11 +17,8 @@ class listview extends getList{
 	function __beforeLoad(){
 		$this->setTitle(translator::trans('sms.get'));
 		navigation::active("sms/get");
-		$this->addAssets();
+		$this->addBodyClass('smslist');
 		$this->setUserInput();
-	}
-	private function addAssets(){
-		$this->addJSFile(theme::url('assets/js/pages/get.list.js'));
 	}
 	protected function getStatusForSelect(){
 		return array(

@@ -19,13 +19,7 @@ class edit extends editView{
 	function __beforeLoad(){
 		$this->setTitle(translator::trans("settings.sms.gateways.edit"));
 		$this->setNavigation();
-		$this->addAssets();
-	}
-	public function addAssets(){
-		$this->addJSFile(theme::url('assets/plugins/jquery-validation/dist/jquery.validate.min.js'));
-		$this->addJSFile(theme::url('assets/plugins/bootstrap-inputmsg/bootstrap-inputmsg.min.js'));
-		$this->addJSFile(theme::url('assets/js/pages/add.js'));
-		$this->addCSSFile(theme::url('assets/css/pages/add.css'));
+		$this->addBodyClass('sms_gateways');
 	}
 	private function setNavigation(){
 		navigation::active("settings/sms/gateways");

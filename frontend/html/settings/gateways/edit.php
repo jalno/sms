@@ -21,7 +21,7 @@ $this->the_header();
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
-                    <form class="create_form" action="<?php echo userpanel\url('settings/sms/gateways/edit/'.$this->getGateway()->id); ?>" method="post">
+                    <form class="gateways_form" action="<?php echo userpanel\url('settings/sms/gateways/edit/'.$this->getGateway()->id); ?>" method="post">
 						<div class="numbersfields"></div>
 						<div class="col-md-6">
 							<?php
