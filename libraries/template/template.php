@@ -91,6 +91,9 @@ class template extends dbObject{
 						}
 					}
 				}
+				if(is_array($value) or is_object($value)){
+					$value = json\encode($value);
+				}
 				$values[] = $value;
 			}
 			return str_ireplace($keys,$values,$this->text);
