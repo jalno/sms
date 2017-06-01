@@ -15,6 +15,7 @@ class template extends dbObject{
 		'text' => array('type' => 'text', 'required' => true),
 		'status' => array('type' => 'int', 'required' => true)
     );
+	private $recursionLevel = 0;
 	protected $jsonFields = array('variables');
 	public function addObjectVariable($obj,$prefix=''){
 		if($primaryKey = $obj->getPrimaryKey()){
@@ -27,6 +28,12 @@ class template extends dbObject{
 			if(strtolower($relation[0]) == 'hasone'){
 				$relation[1] = '\\'.$relation[1];
 				$robj = new $relation[1]();
+				if(is_a($robj, get_class($obj))){
+					if($this->recursionLevel > 0){
+						continue;
+					}
+					$this->recursionLevel++;
+				}
 				$this->addObjectVariable($robj,$prefix.'->'.$field);
 			}
 		}
