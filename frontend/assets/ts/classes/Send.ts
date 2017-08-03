@@ -2,7 +2,7 @@ import * as $ from "jquery";
 import "jquery-ui/ui/widgets/autocomplete.js";
 import "jquery-validation";
 import {Router, webuilder} from "webuilder";
-import "webuilder/dist/formAjax"
+import "webuilder"
 interface user{
 	id:number;
 	name:string;

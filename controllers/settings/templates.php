@@ -227,7 +227,7 @@ class templates extends controller{
 						$templateObj->render = null;
 					}
 				}elseif(isset($inputs['lang']) and $inputs['lang'] != $templateObj->lang){
-					if(template::where("name", $templateObj->lang)->were("lang", $inputs['lang'])->has()){
+					if(template::where("name", $templateObj->lang)->where("lang", $inputs['lang'])->has()){
 						throw new duplicateRecord("lang");
 					}
 				}

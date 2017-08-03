@@ -28,6 +28,7 @@ class api{
 		$template = new template();
 		$template->where('name', $name);
 		$template->where('lang', $lang);
+		$template->where('status', template::active);
 		if($template = $template->getOne()){
 			$this->message = $template->render($parameters);
 		}else{
