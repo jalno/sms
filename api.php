@@ -41,8 +41,10 @@ class api{
 		if($receiver_user === null and !is_object($receiver_number)){
 			$user = new user();
 			$user->where("cellphone", $receiver_number);
-			$user->getOne();
-			$this->receiver_user = $user;
+			$receiver_user = $user->getOne();
+		}
+		if($receiver_user){
+			$this->receiver_user = $receiver_user;
 		}
 		return $this;
 	}
