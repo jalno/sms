@@ -1,33 +1,34 @@
 <?php
 namespace packages\sms\notifications;
-use \packages\base\event;
-use \packages\base\translator;
-use \packages\notifications;
-use \packages\sms\api;
-use \packages\sms\template;
-use \packages\sms\deactivedNumberException;
-use \packages\sms\defaultNumberException;
-class channel extends notifications\channel{
-	public function notify(event $event){
-		$lang = translator::getShortCodeLang();
-		$template = new template();
+
+use packages\base\{Event, Translator};
+use packages\notifications;
+use packages\sms\{API, Template, DeactivedNumberException, DefaultNumberException};
+
+class Channel extends notifications\Channel {
+
+	public function notify(Event $event) {
+		$lang = Translator::getShortCodeLang();
+		$template = new Template();
 		$template->where('name', $event->getName());
 		$template->where('lang', $lang);
-		$template->where('status', template::active);
-		if($template->has()){
-			try{
-				foreach($event->getTargetUsers() as $user){
-					$api = new api();
+		$template->where('status', Template::active);
+		if ($template->has()) {
+			try {
+				foreach ($event->getTargetUsers() as $user) {
+					$api = new API();
 					$arguments = array_replace(array('user' => $user), $event->getArguments());
 					$api->template($event->getName(), $arguments);
 					$api->to($user->cellphone, $user);
 					$api->send();
 				}
-			}catch(deactivedNumberException $e){
-
-			}catch(defaultNumberException $e){
-				
+			} catch (DeactivedNumberException $e) {
+			} catch (DefaultNumberException $e) {
 			}
 		}
+	}
+
+	public function getName(): string {
+		return "sms";
 	}
 }

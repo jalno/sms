@@ -21,8 +21,8 @@
 		"usertype.permissions.sms_settings_templates_list": "لیست قالب های پیامک",
 		"usertype.permissions.sms_settings_templates_add": "افزودن قالب پیامک",
 		"usertype.permissions.sms_settings_templates_edit": "ویرایش قالب پیامک",
-		"usertype.permissions.sms_settings_templates_delete": "حذف قالب پیامک"
+		"usertype.permissions.sms_settings_templates_delete": "حذف قالب پیامک",
 
-
+		"notifications.channel.name.sms": "پیامک"
 	}
 }
