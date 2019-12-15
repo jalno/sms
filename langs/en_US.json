@@ -1,0 +1,28 @@
+{
+	"author": {
+		"name" : "Hossein Hosni",
+		"website" : "http://hosseinhosni.ir/"
+	},
+	"rtl": false,
+	"phrases":{
+		"sms.get.bySenderNumber": "SMS received from {senderNumber}",
+		"sms.get.description": "Received at {receive_at}, Text: {text}",
+		"sms.sent.byReceiverNumber": "SMS Sent to {receiverNumber}",
+		"sms.sent.description": "Send at {send_at}, Text: {text}",
+		"usertype.permissions.sms_sent_list": "Sent SMSs List",
+		"usertype.permissions.sms_sent_list_anonymous": "Anonymous Sent SMSs",
+		"usertype.permissions.sms_get_list": "Anonymous Sent SMSs",
+		"usertype.permissions.sms_get_list_anonymous": "Anonymous Received SMSs",
+		"usertype.permissions.sms_send": "Send SMS",
+		"usertype.permissions.sms_settings_gateways_list": "Search in SMS Panels",
+		"usertype.permissions.sms_settings_gateways_add": "Add SMS Panel",
+		"usertype.permissions.sms_settings_gateways_edit": "Edit SMS Panel",
+		"usertype.permissions.sms_settings_gateways_delete": "Delete SMS Panel",
+		"usertype.permissions.sms_settings_templates_list": "SMS Templates",
+		"usertype.permissions.sms_settings_templates_add": "Add SMS Template",
+		"usertype.permissions.sms_settings_templates_edit": "Edit SMS Template",
+		"usertype.permissions.sms_settings_templates_delete": "Delete SMS Template",
+
+		"notifications.channel.name.sms": "SMS"
+	}
+}
