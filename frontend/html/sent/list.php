@@ -136,7 +136,7 @@ $this->the_header();
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button type="submit" form="sms_sent_search" class="btn btn-success"><?php echo translator::trans("search"); ?></button>
+		<button type="submit" form="smslist_search" class="btn btn-success"><?php echo translator::trans("search"); ?></button>
 		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo translator::trans('cancel'); ?></button>
 	</div>
 </div>
