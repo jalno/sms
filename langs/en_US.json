@@ -9,15 +9,26 @@
 		"sms.get.description": "Received at {receive_at}, Text: {text}",
 		"sms.sent.byReceiverNumber": "SMS Sent to {receiverNumber}",
 		"sms.sent.description": "Send at {send_at}, Text: {text}",
+
+		"usertype.permissions.sms": "SMS",
+		"usertype.permissions.sms_send": "Send SMS",
+
+		"usertype.permissions.sms_sent": "Sent SMSs",
 		"usertype.permissions.sms_sent_list": "Sent SMSs List",
 		"usertype.permissions.sms_sent_list_anonymous": "Anonymous Sent SMSs",
-		"usertype.permissions.sms_get_list": "Anonymous Sent SMSs",
+
+		"usertype.permissions.sms_get": "Received SMSs",
+		"usertype.permissions.sms_get_list": "Received SMSs",
 		"usertype.permissions.sms_get_list_anonymous": "Anonymous Received SMSs",
-		"usertype.permissions.sms_send": "Send SMS",
+
+		"usertype.permissions.sms_settings": "SMS Settings",
+		"usertype.permissions.sms_settings_gateways": "SMS Gateways",
 		"usertype.permissions.sms_settings_gateways_list": "Search in SMS Panels",
 		"usertype.permissions.sms_settings_gateways_add": "Add SMS Panel",
 		"usertype.permissions.sms_settings_gateways_edit": "Edit SMS Panel",
 		"usertype.permissions.sms_settings_gateways_delete": "Delete SMS Panel",
+
+		"usertype.permissions.sms_settings_templates": "SMS Templates",
 		"usertype.permissions.sms_settings_templates_list": "SMS Templates",
 		"usertype.permissions.sms_settings_templates_add": "Add SMS Template",
 		"usertype.permissions.sms_settings_templates_edit": "Edit SMS Template",
