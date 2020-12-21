@@ -19,7 +19,7 @@ class BeforeDelete {
 			return;
 		}
 		$message = t("error.packages.sms.error.smses.sent.sender_user.delete_user_warn.message");
-		$error = new Error("error.packages.sms.error.smses.sent.sender_user.delete_user_warn");
+		$error = new Error("packages.sms.error.smses.sent.sender_user.delete_user_warn");
 		$error->setType(Error::WARNING);
 		if (Authorization::is_accessed("sent_list")) {
 			$message .= "<br> " . t("packages.sms.error.smses.sent.sender_user.delete_user_warn.view_smses") . " ";
@@ -46,7 +46,7 @@ class BeforeDelete {
 			return;
 		}
 		$message = t("error.packages.sms.error.smses.sent.receiver_user.delete_user_warn.message");
-		$error = new Error("error.packages.sms.error.smses.sent.receiver_user.delete_user_warn");
+		$error = new Error("packages.sms.error.smses.sent.receiver_user.delete_user_warn");
 		$error->setType(Error::WARNING);
 		if (Authorization::is_accessed("sent_list")) {
 			$message .= "<br> " . t("packages.sms.error.smses.sent.receiver_user.delete_user_warn.view_smses") . " ";
@@ -73,7 +73,7 @@ class BeforeDelete {
 			return;
 		}
 		$message = t("error.packages.sms.error.smses.get.sender_user.delete_user_warn.message");
-		$error = new Error("error.packages.sms.error.smses.get.sender_user.delete_user_warn");
+		$error = new Error("packages.sms.error.smses.get.sender_user.delete_user_warn");
 		$error->setType(Error::WARNING);
 		if (Authorization::is_accessed("get_list")) {
 			$message .= "<br> " . t("packages.sms.error.smses.get.sender_user.delete_user_warn.view_smses") . " ";
