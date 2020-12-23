@@ -34,6 +34,24 @@
 		"usertype.permissions.sms_settings_templates_edit": "Edit SMS Template",
 		"usertype.permissions.sms_settings_templates_delete": "Delete SMS Template",
 
-		"notifications.channel.name.sms": "SMS"
+		"notifications.channel.name.sms": "SMS",
+
+		"error.packages.sms.error.smses.sent.sender_user.delete_user_warn": "Warn about SMSes sent by this user",
+		"error.packages.sms.error.smses.sent.sender_user.delete_user_warn.message": "This user has sent a SMS or SMSs; If you delete the user, all SMSes sent by this user will be deleted!",
+		"packages.sms.error.smses.sent.sender_user.delete_user_warn.view_smses": "You can view the SMSes sent by this user using the link below.",
+		"packages.sms.error.smses.sent.sender_user.delete_user_warn.view_smses.tell_someone": "If you want to view the SMSes sent by this user, ask the person who has this access.",
+		"packages.sms.error.smses.sent.sender_user.delete_user_warn.view_smses_btn": "View SMS sent by this user",
+
+		"error.packages.sms.error.smses.sent.receiver_user.delete_user_warn": "Warn about SMSes sent to this user",
+		"error.packages.sms.error.smses.sent.receiver_user.delete_user_warn.message": "SMS or SMSes have been sent to this user; If the user is deleted, all SMSes sent to this user in the system will be deleted!",
+		"packages.sms.error.smses.sent.receiver_user.delete_user_warn.view_smses": "You can view the SMSes sent to this user using the following link.",
+		"packages.sms.error.smses.sent.receiver_user.delete_user_warn.view_smses.tell_someone": "If you want to view the SMSes sent to this user, ask the person who has this access.",
+		"packages.sms.error.smses.sent.receiver_user.delete_user_warn.view_smses_btn": "View SMS sent to this user",
+
+		"error.packages.sms.error.smses.get.sender_user.delete_user_warn": "Warn about SMSes received from this user",
+		"error.packages.sms.error.smses.get.sender_user.delete_user_warn.message": "SMS or SMSes received from this user; If the user is deleted, all SMSes received from this user in the system will be deleted!",
+		"packages.sms.error.smses.get.sender_user.delete_user_warn.view_smses": "You can view the SMSes received from this user using the link below.",
+		"packages.sms.error.smses.get.sender_user.delete_user_warn.view_smses.tell_someone": "If you want to view the SMSes received from this user, ask the person who has this access.",
+		"packages.sms.error.smses.get.sender_user.delete_user_warn.view_smses_btn": "View SMS received from this user"
 	}
 }
