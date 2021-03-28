@@ -69,19 +69,23 @@ class template extends dbObject{
 		}else{
 			$keys = array();
 			$values = array();
+			$paramsKeys = array_keys($params);
+			$paramsKeysLower = array_map('strtolower', $paramsKeys);
 			foreach($this->variables as $variable){
+				$variable = strtolower($variable);
 				$keys[] = '['.$variable.']';
 				$value = '';
-				if(isset($params[$variable])){
-					$value = $params[$variable];
+				if (($key = array_search($variable, $paramsKeysLower)) !== false) {
+					$value = $params[$paramsKeys[$key]];
 				}else{
 					$parts = explode('->',$variable);
-					if(
-						isset($params[$parts[0]]) and
-						is_object($params[$parts[0]]) and
-						$params[$parts[0]] instanceof dbObject
-					){
-						$obj = $params[$parts[0]];
+					$key = array_search($parts[0], $paramsKeysLower);
+					if (
+						$key !== false and
+						is_object($params[$paramsKeys[$key]]) and
+						$params[$paramsKeys[$key]] instanceof dbObject
+					) {
+						$obj = $params[$paramsKeys[$key]];
 						$len = count($parts);
 						for($x = 1;($x < $len and is_object($obj) and $obj instanceof dbObject);$x++){
 							$part = $parts[$x];
