@@ -1,10 +1,13 @@
 <?php
 namespace packages\sms;
-use \packages\base\db\dbObject;
-use \packages\sms\gateway\param;
-class gateway extends dbObject{
+
+use packages\base\{db\DBObject, Exception};
+use packages\sms\{gateway\Param};
+
+class Gateway extends DBObject {
 	const active = 1;
 	const deactive = 2;
+
 	protected $dbTable = "sms_gateways";
 	protected $primaryKey = "id";
 	private $handlerClass;
@@ -17,6 +20,7 @@ class gateway extends dbObject{
 		'numbers' => array('hasMany', 'packages\\sms\\gateway\\number', 'gateway'),
 		'params' => array('hasMany', 'packages\\sms\\gateway\\param', 'gateway')
 	);
+
 	function __construct($data = null, $connection = 'default'){
 		$data = $this->processData($data);
 		parent::__construct($data, $connection);
@@ -94,7 +98,11 @@ class gateway extends dbObject{
 		}
 		return false;
 	}
-	public function send(sent $sms){
-		return $this->getController()->send($sms);
+	public function send(sent $sms) {
+		$controller = $this->getController();
+		if ($controller === false) {
+			throw new Exception("can not find handler");
+		}
+		return $controller->send($sms);
 	}
 }
