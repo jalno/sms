@@ -24,8 +24,8 @@
 			"listener": "listeners\\search@find"
 		},
 		{
-			"name":"\\packages\\notifications\\events\\channels",
-			"listener": "listeners\\notifications@channels"
+			"name":"packages/notifications/events/Channels",
+			"listener": "listeners/Notifications@channels"
 		}
 	]
 }
