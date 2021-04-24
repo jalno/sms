@@ -63,7 +63,7 @@ CREATE TABLE `sms_sent` (
 	`send_at` int(11) NOT NULL,
 	`sender_number` int(11) NOT NULL,
 	`sender_user` int(11) DEFAULT NULL,
-	`receiver_number` varchar(12) COLLATE utf8_persian_ci NOT NULL,
+	`receiver_number` varchar(14) COLLATE utf8_persian_ci NOT NULL,
 	`receiver_user` int(11) DEFAULT NULL,
 	`text` text COLLATE utf8_persian_ci NOT NULL,
 	`status` tinyint(4) NOT NULL,
