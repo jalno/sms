@@ -1,10 +1,11 @@
 <?php
-use \packages\base;
-use \packages\base\translator;
+/** @var themes\clipone\views\sms\sent\ListView $this */
 
-use \packages\userpanel;
-use \packages\userpanel\user;
-use \packages\userpanel\date;
+use packages\base;
+use packages\base\{Translator};
+use packages\userpanel;
+use packages\userpanel\{Date, User};
+
 $this->the_header();
 ?>
 <div class="row">
@@ -52,7 +53,7 @@ $this->the_header();
 								<?php }else{
 									echo translator::trans('sms.user.receiver.unknown');
 								} ?></td>
-								<td class="ltr"><?php echo $row->receiver_number; ?></td>
+								<td class="ltr"><?php echo User::getTelephoneWithDialingCode($row->receiver_number); ?></td>
 								<td><?php echo $row->text; ?></td>
 							</tr>
 							<?php
