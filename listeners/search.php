@@ -85,7 +85,7 @@ class search{
 			if($types){
 				db::where("userpanel_users.type", $types, 'in');
 			}else{
-				db::where("userpanel_users.id", authentication::sentID());
+				db::where("userpanel_users.id", authentication::getID());
 			}
 		}
 		db::orderBy('sms_sent.id', 'DESC');

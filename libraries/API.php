@@ -66,7 +66,8 @@ class api{
 	}
 	public function fromDefaultNumber(){
 		if($defaultnumber = options::get('packages.sms.defaultNumber')){
-			if($number = number::byID($defaultnumber)){
+			$number = (new Number)->byID($defaultnumber);
+			if ($number) {
 				$this->fromNumber($number);
 			}else{
 				throw new defaultNumberException();
@@ -82,8 +83,9 @@ class api{
 			}
 		}elseif($type == 'send'){
 			if(!$this->sender_number instanceof number){
-				if($sender_number = number::where('number', $this->sender_number)->getOne()){
-					if($number->status == number::active and $number->gateway->status == gateway::active){
+				$sender_number = (new Number)->where('number', $this->sender_number)->getOne();
+				if ($sender_number) {
+					if($sender_number->status == number::active and $sender_number->gateway->status == gateway::active){
 						$this->sender_number = $sender_number;
 					}else{
 						throw new deactivedNumberException;
@@ -102,8 +104,9 @@ class api{
 			}
 		}elseif($type == 'receive'){
 			if(!$this->receiver_number instanceof number){
-				if($receiver_number = number::where('number', $this->receiver_number)->getOne()){
-					if($number->status == number::active and $number->gateway->status == gateway::active){
+				$receiver_number = (new Number)->where('number', $this->receiver_number)->getOne();
+				if ($receiver_number) {
+					if($receiver_number->status == number::active and $receiver_number->gateway->status == gateway::active){
 						$this->receiver_number = $receiver_number;
 					}else{
 						throw new deactivedNumberException;
