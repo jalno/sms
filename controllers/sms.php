@@ -286,7 +286,8 @@ class sms extends controller{
 					'optional' => true
 				),
 				'text' => array(
-					'type' => 'string'
+					'type' => 'string',
+					'multiLine' => true,
 				)
 			);
 			try {
