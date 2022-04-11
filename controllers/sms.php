@@ -292,6 +292,8 @@ class sms extends controller{
 			);
 			try {
 				$inputs = $this->checkinputs($inputsRules);
+				$inputs['text'] = str_replace("\r\n", "\n", $inputs['text']); // this is for save charachters
+
 				if(array_key_exists('from',$inputs)){
 					if(!$inputs['from'] = number::byId($inputs['from'])){
 						throw new inputValidation("from");
