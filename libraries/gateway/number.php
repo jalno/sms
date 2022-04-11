@@ -8,7 +8,7 @@ use packages\sms\Gateway;
 /**
  * @property \packages\sms\Gateway $gateway
  * @property string $number
- * @property 1|2 $status
+ * @property int $status
  */
 class Number extends DBObject {
 

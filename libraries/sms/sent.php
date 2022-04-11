@@ -14,7 +14,7 @@ use packages\userpanel\User;
  * @property string $receiver_number
  * @property \packages\userpanel\User $receiver_user
  * @property string $text
- * @property 1|2|3|4 $status
+ * @property int $status
  * @property \packages\sms\sent\Param[] $params
  */
 class Sent extends DBObject {
