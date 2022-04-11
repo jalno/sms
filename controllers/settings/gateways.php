@@ -207,7 +207,8 @@ class gateways extends controller{
 	}
 	public function delete($data){
 		authorization::haveOrFail('settings_gateways_delete');
-		if(!$gateway = gateway::byID($data['gateway'])){
+		$gateway = (new Gateway)->byID($data['gateway']);
+		if (!$gateway) {
 			throw new NotFound;
 		}
 		$view = view::byName("\\packages\\sms\\views\\settings\\gateways\\delete");
@@ -225,7 +226,8 @@ class gateways extends controller{
 	}
 	public function edit($data){
 		authorization::haveOrFail('settings_gateways_edit');
-		if(!$gatewayObj = gateway::byID($data['gateway'])){
+		$gatewayObj = (new Gateway)->byID($data['gateway']);
+		if (!$gatewayObj) {
 			throw new NotFound;
 		}
 		$view = view::byName("\\packages\\sms\\views\\settings\\gateways\\edit");

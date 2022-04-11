@@ -1,5 +1,4 @@
 <?php
-/** @var themes\clipone\views\sms\sent\ListView $this */
 
 use packages\base;
 use packages\base\{Translator, utility};

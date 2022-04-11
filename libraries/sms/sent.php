@@ -1,12 +1,29 @@
 <?php
+
 namespace packages\sms;
-use \packages\base\db\dbObject;
-use \packages\sms\sent\param;
-class sent extends dbObject{
+
+use packages\base\db\DBObject;
+use packages\sms\Gateway;
+use packages\sms\sent\Param;
+use packages\userpanel\User;
+
+/**
+ * @property int $send_at
+ * @property \packages\sms\Gateway\Number $sender_number
+ * @property \packages\userpanel\User $sender_user
+ * @property string $receiver_number
+ * @property \packages\userpanel\User $receiver_user
+ * @property string $text
+ * @property 1|2|3|4 $status
+ * @property \packages\sms\sent\Param[] $params
+ */
+class Sent extends DBObject {
+
 	const queued = 1;
 	const sending = 2;
 	const sent = 3;
 	const failed = 4;
+
 	protected $tmparams = array();
 	protected $dbTable = "sms_sent";
 	protected $primaryKey = "id";
@@ -20,10 +37,10 @@ class sent extends dbObject{
 		'status' => array('type' => 'int', 'required' => true)
     );
 	protected $relations = array(
-		'sender_number' => array('hasOne', 'packages\\sms\\gateway\\number', 'sender_number'),
-		'sender_user' => array('hasOne', 'packages\\userpanel\\user', 'sender_user'),
-		'receiver_user' => array('hasOne', 'packages\\userpanel\\user', 'receiver_user'),
-		'params' => array('hasMany', 'packages\\sms\\sent\\param', 'sms'),
+		'sender_number' => array('hasOne', Gateway\Number::class, 'sender_number'),
+		'sender_user' => array('hasOne', User::class, 'sender_user'),
+		'receiver_user' => array('hasOne', User::class, 'receiver_user'),
+		'params' => array('hasMany', Param::class, 'sms'),
 	);
 	private function processData($data){
 		$newdata = array();

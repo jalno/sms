@@ -1,5 +1,6 @@
 <?php
 namespace themes\clipone\views\sms\sent;
+
 use \packages\base\translator;
 use \packages\base\frontend\theme;
 use \packages\userpanel;
@@ -8,19 +9,20 @@ use \packages\sms\sent;
 use \packages\sms\views\sent\listview as sentList;
 use \themes\clipone\navigation;
 use \themes\clipone\navigation\menuItem;
-use \themes\clipone\views\listTrait;
-use \themes\clipone\views\formTrait;
-use \themes\clipone\viewTrait;
+use themes\clipone\views\ListTrait;
+use themes\clipone\views\FormTrait;
+use themes\clipone\ViewTrait;
 
-class listview extends sentList{
-	use viewTrait,listTrait, formTrait;
-	function __beforeLoad(){
+class listview extends sentList {
+	use ViewTrait, ListTrait, FormTrait;
+
+	public function __beforeLoad(){
 		$this->setTitle(translator::trans('sms.sent'));
 		navigation::active("sms/sent");
 		$this->addBodyClass('smslist');
 		$this->setUserInput();
 	}
-	protected function getStatusForSelect(){
+	public function getStatusForSelect(){
 		return array(
 			array(
 				'title' => translator::trans("choose"),

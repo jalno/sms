@@ -156,7 +156,8 @@ class templates extends controller{
 	}
 	public function delete($data){
 		authorization::haveOrFail('settings_templates_delete');
-		if(!$template = template::byID($data['template'])){
+		$template = (new Template)->byID($data['template']);
+		if (!$template) {
 			throw new NotFound;
 		}
 		$view = view::byName("\\packages\\sms\\views\\settings\\templates\\delete");
@@ -174,7 +175,8 @@ class templates extends controller{
 	}
 	public function edit($data){
 		authorization::haveOrFail('settings_templates_edit');
-		if(!$templateObj = template::byID($data['template'])){
+		$templateObj = (new Template)->byID($data['template']);
+		if (!$templateObj) {
 			throw new NotFound;
 		}
 		$view = view::byName("\\packages\\sms\\views\\settings\\templates\\edit");

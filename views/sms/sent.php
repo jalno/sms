@@ -6,8 +6,11 @@ use \packages\sms\authorization;
 
 class listview extends list_view{
 	use formTrait;
-	protected $canSend;
+
+	public bool $canSend;
+
 	static protected $navigation;
+
 	function __construct(){
 		$this->canSend = authorization::is_accessed('send');
 	}
