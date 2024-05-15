@@ -1,20 +1,20 @@
 <?php
-use \packages\base\translator;
+use \packages\base\Translator;
 use \packages\userpanel;
-use \packages\sms\gateway;
-use \themes\clipone\utility;
+use \packages\sms\GateWay;
+use \themes\clipone\Utility;
 $this->the_header();
 ?>
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<i class="fa fa-rss"></i> <?php echo translator::trans("settings.sms.gateways"); ?>
+				<i class="fa fa-rss"></i> <?php echo Translator::trans("settings.sms.gateways"); ?>
 				<div class="panel-tools">
 					<?php if($this->canAdd){ ?>
-					<a class="btn btn-xs btn-link tooltips" title="<?php echo translator::trans('add'); ?>" href="<?php echo userpanel\url('settings/sms/gateways/add'); ?>"><i class="fa fa-plus"></i></a>
+					<a class="btn btn-xs btn-link tooltips" title="<?php echo Translator::trans('add'); ?>" href="<?php echo userpanel\url('settings/sms/gateways/add'); ?>"><i class="fa fa-plus"></i></a>
 					<?php } ?>
-					<a class="btn btn-xs btn-link tooltips" title="<?php echo translator::trans('search'); ?>" href="#search" data-toggle="modal"><i class="fa fa-search"></i></a>
+					<a class="btn btn-xs btn-link tooltips" title="<?php echo Translator::trans('search'); ?>" href="#search" data-toggle="modal"><i class="fa fa-search"></i></a>
 					<a class="btn btn-xs btn-link panel-collapse collapses" href="#"></a>
 				</div>
 			</div>
@@ -27,9 +27,9 @@ $this->the_header();
 						<thead>
 							<tr>
 								<th class="center">#</th>
-								<th><?php echo translator::trans('sms.gateway.title'); ?></th>
-								<th><?php echo translator::trans('sms.gateway.type'); ?></th>
-								<th><?php echo translator::trans('sms.gateway.status'); ?></th>
+								<th><?php echo Translator::trans('sms.gateway.title'); ?></th>
+								<th><?php echo Translator::trans('sms.gateway.type'); ?></th>
+								<th><?php echo Translator::trans('sms.gateway.status'); ?></th>
 								<?php if($hasButtons){ ?><th></th><?php } ?>
 							</tr>
 						</thead>
@@ -55,8 +55,8 @@ $this->the_header();
 						<tr>
 							<td class="center"><?php echo $item->id; ?></td>
 							<td><?php echo $item->title; ?></td>
-							<td><?php echo (translator::trans('sms.gateway.'.$gateway) ? translator::trans('sms.gateway.'.$gateway) : $gateway); ?></td>
-							<td><span class="<?php echo $statusClass; ?>"><?php echo translator::trans($statusTxt); ?></span></td>
+							<td><?php echo (Translator::trans('sms.gateway.'.$gateway) ? Translator::trans('sms.gateway.'.$gateway) : $gateway); ?></td>
+							<td><span class="<?php echo $statusClass; ?>"><?php echo Translator::trans($statusTxt); ?></span></td>
 							<?php
 							if($hasButtons){
 								echo("<td class=\"center\">".$this->genButtons()."</td>");
@@ -77,7 +77,7 @@ $this->the_header();
 <div class="modal fade" id="search" tabindex="-1" data-show="true" role="dialog">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h4 class="modal-title"><?php echo translator::trans('search'); ?></h4>
+		<h4 class="modal-title"><?php echo Translator::trans('search'); ?></h4>
 	</div>
 	<div class="modal-body">
 		<form id="gateways_search_form" class="form-horizontal" action="<?php echo userpanel\url("settings/sms/gateways"); ?>" method="GET">
@@ -87,15 +87,15 @@ $this->the_header();
 				array(
 					'name' => 'id',
 					'type' => 'number',
-					'label' => translator::trans("ticket.id")
+					'label' => Translator::trans("ticket.id")
 				),
 				array(
 					'name' => 'title',
-					'label' => translator::trans("department.title")
+					'label' => Translator::trans("department.title")
 				),
 				array(
 					'type' => 'select',
-					'label' => translator::trans('search.comparison'),
+					'label' => Translator::trans('search.comparison'),
 					'name' => 'comparison',
 					'options' => $this->getComparisonsForSelect()
 				)
@@ -107,8 +107,8 @@ $this->the_header();
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button type="submit" form="gateways_search_form" class="btn btn-success"><?php echo translator::trans("search"); ?></button>
-		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo translator::trans('cancel'); ?></button>
+		<button type="submit" form="gateways_search_form" class="btn btn-success"><?php echo Translator::trans("search"); ?></button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo Translator::trans('cancel'); ?></button>
 	</div>
 </div>
 <?php

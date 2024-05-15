@@ -1,10 +1,10 @@
 <?php
 use \packages\base;
-use \packages\base\translator;
+use \packages\base\Translator;
 use \packages\userpanel;
-use \packages\userpanel\date;
-use \packages\sms\gateway\number;
-use \themes\clipone\utility;
+use \packages\userpanel\Date;
+use \packages\sms\GateWay\Number;
+use \themes\clipone\Utility;
 
 $this->the_header();
 ?>
@@ -13,7 +13,7 @@ $this->the_header();
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-plus"></i>
-                <span><?php echo translator::trans("settings.sms.gateways.add"); ?></span>
+                <span><?php echo Translator::trans("settings.sms.gateways.add"); ?></span>
 				<div class="panel-tools">
 					<a class="btn btn-xs btn-link panel-collapse collapses" href="#"></a>
 				</div>
@@ -26,18 +26,18 @@ $this->the_header();
 							<?php
 							$this->createField(array(
 								'name' => 'title',
-								'label' => translator::trans("sms.gateway.title")
+								'label' => Translator::trans("sms.gateway.title")
 							));
 							$this->createField(array(
 								'name' => 'gateway',
 								'type' => 'select',
-								'label' => translator::trans("sms.gateway.type"),
+								'label' => Translator::trans("sms.gateway.type"),
 								'options' => $this->getGatewaysForSelect()
 							));
 							$this->createField(array(
 								'name' => 'status',
 								'type' => 'select',
-								'label' => translator::trans("sms.gateway.status"),
+								'label' => Translator::trans("sms.gateway.status"),
 								'options' => $this->getGatewayStatusForSelect()
 							));
 							?>
@@ -46,11 +46,11 @@ $this->the_header();
 								<thead>
 									<tr>
 										<th>#</th>
-										<th><?php echo translator::trans('sms.number'); ?></th>
-										<th><?php echo translator::trans('sms.number.status'); ?></th>
-										<th><?php echo translator::trans('sms.number.primary'); ?></th>
+										<th><?php echo Translator::trans('sms.number'); ?></th>
+										<th><?php echo Translator::trans('sms.number.status'); ?></th>
+										<th><?php echo Translator::trans('sms.number.primary'); ?></th>
 										<th class="table-tools">
-											<a class="btn btn-xs btn-link btn-number-add tooltips" title="<?php echo translator::trans('sms.number.add'); ?>" href="#number-add" data-toggle="modal"><i class="fa fa-plus"></i></a>
+											<a class="btn btn-xs btn-link btn-number-add tooltips" title="<?php echo Translator::trans('sms.number.add'); ?>" href="#number-add" data-toggle="modal"><i class="fa fa-plus"></i></a>
 										</th>
 									</tr>
 								</thead>
@@ -72,8 +72,8 @@ $this->the_header();
 						</div>
 						<div class="col-md-12">
 			                <p>
-			                    <a href="<?php echo userpanel\url('settings/sms/gateways'); ?>" class="btn btn-light-grey"><i class="fa fa-chevron-circle-right"></i> <?php echo translator::trans('return'); ?></a>
-			                    <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> <?php echo translator::trans("submit"); ?></button>
+			                    <a href="<?php echo userpanel\url('settings/sms/gateways'); ?>" class="btn btn-light-grey"><i class="fa fa-chevron-circle-right"></i> <?php echo Translator::trans('return'); ?></a>
+			                    <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> <?php echo Translator::trans("submit"); ?></button>
 			                </p>
 						</div>
 	                </form>
@@ -85,7 +85,7 @@ $this->the_header();
 <div class="modal fade" id="number-add" tabindex="-1" data-show="true" role="dialog">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h4 class="modal-title"><?php echo translator::trans('sms.number.add'); ?></h4>
+		<h4 class="modal-title"><?php echo Translator::trans('sms.number.add'); ?></h4>
 	</div>
 	<div class="modal-body">
 		<form id="number_add_form" class="form-horizontal" action="#" method="POST">
@@ -95,27 +95,27 @@ $this->the_header();
 				array(
 					'type' => 'number',
 					'name' => 'number',
-					'label' => translator::trans("sms.number"),
+					'label' => Translator::trans("sms.number"),
 					'ltr' => true
 				),
 				array(
 					'type' => 'select',
 					'name' => 'status',
-					'label' => translator::trans("sms.number.status"),
+					'label' => Translator::trans("sms.number.status"),
 					'options' => array(
 						array(
-							'value' => number::active,
-							'title' => translator::trans("sms.number.status.active")
+							'value' => Number::active,
+							'title' => Translator::trans("sms.number.status.active")
 						),
 						array(
-							'value' => number::deactive,
-							'title' => translator::trans("sms.number.status.deactive")
+							'value' => Number::deactive,
+							'title' => Translator::trans("sms.number.status.deactive")
 						)
 					)
 				),
 				array(
 					'type' => 'checkbox',
-					'label' => translator::trans('sms.number.primary'),
+					'label' => Translator::trans('sms.number.primary'),
 					'name' => 'primary',
 					'options' => array(
 						array(
@@ -131,14 +131,14 @@ $this->the_header();
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button type="submit" form="number_add_form" class="btn btn-success"><?php echo translator::trans("submit"); ?></button>
-		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo translator::trans('cancel'); ?></button>
+		<button type="submit" form="number_add_form" class="btn btn-success"><?php echo Translator::trans("submit"); ?></button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo Translator::trans('cancel'); ?></button>
 	</div>
 </div>
 <div class="modal fade" id="number-delete" tabindex="-1" data-show="true" role="dialog">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h4 class="modal-title"><?php echo translator::trans('sms.number.delete'); ?></h4>
+		<h4 class="modal-title"><?php echo Translator::trans('sms.number.delete'); ?></h4>
 	</div>
 	<div class="modal-body">
 		<form id="number_delete_form" class="form-horizontal" action="#" method="POST">
@@ -147,8 +147,8 @@ $this->the_header();
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button type="submit" form="number_delete_form" class="btn btn-danger"><?php echo translator::trans("submit"); ?></button>
-		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo translator::trans('cancel'); ?></button>
+		<button type="submit" form="number_delete_form" class="btn btn-danger"><?php echo Translator::trans("submit"); ?></button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo Translator::trans('cancel'); ?></button>
 	</div>
 </div>
 <?php

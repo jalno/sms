@@ -1,17 +1,17 @@
 <?php
 namespace packages\sms;
-use \packages\base\utility\safe;
-use \packages\base\options;
-use \packages\base\events;
-use \packages\base\translator;
-use \packages\userpanel\user;
-use \packages\sms\sent;
-use \packages\sms\template;
-use \packages\sms\gateway;
-use \packages\sms\gateway\number;
-use \packages\sms\events as smsEvents;
+use \packages\base\Utility\Safe;
+use \packages\base\Options;
+use \packages\base\Events;
+use \packages\base\Translator;
+use \packages\userpanel\User;
+use \packages\sms\Sent;
+use \packages\sms\Template;
+use \packages\sms\GateWay;
+use \packages\sms\GateWay\Number;
+use \packages\sms\Events as SMSEvents;
 
-class api{
+class API{
 	private $message;
 	private $receiver_number;
 	private $receiver_user;
@@ -20,15 +20,15 @@ class api{
 	private $time;
 	public function template($name,$parameters = array(),$lang = null){
 		if($lang === null){
-			$lang = translator::getShortCodeLang();
+			$lang = Translator::getShortCodeLang();
 		}
 		if(!$lang){
-			throw new unkownLanguage();
+			throw new UnkownLanguage();
 		}
-		$template = new template();
+		$template = new Template();
 		$template->where('name', $name);
 		$template->where('lang', $lang);
-		$template->where('status', template::active);
+		$template->where('status', Template::active);
 		if($template = $template->getOne()){
 			$this->message = $template->render($parameters);
 		}else{
@@ -36,10 +36,10 @@ class api{
 		}
 		return $this;
 	}
-	public function to($receiver_number, user $receiver_user = null){
+	public function to($receiver_number, User $receiver_user = null){
 		$this->receiver_number = $receiver_number;
 		if($receiver_user === null and !is_object($receiver_number)){
-			$user = new user();
+			$user = new User();
 			$user->where("cellphone", $receiver_number);
 			$receiver_user = $user->getOne();
 		}
@@ -48,16 +48,16 @@ class api{
 		}
 		return $this;
 	}
-	public function fromUser(user $sender_user){
+	public function fromUser(User $sender_user){
 		$this->sender_user  = $sender_user;
 		return $this;
 	}
 	public function fromNumber($number){
-		if(is_object($number) and $number instanceof number){
-			if($number->status == number::active and $number->gateway->status == gateway::active){
+		if(is_object($number) and $number instanceof Number){
+			if($number->status == Number::active and $number->gateway->status == GateWay::active){
 				$this->sender_number = $number;
 			}else{
-				throw new deactivedNumberException;
+				throw new DeactivedNumberException;
 			}
 		}else{
 			$this->sender_number = $number;
@@ -65,33 +65,33 @@ class api{
 		return $this;
 	}
 	public function fromDefaultNumber(){
-		if($defaultnumber = options::get('packages.sms.defaultNumber')){
+		if($defaultnumber = Options::get('packages.sms.defaultNumber')){
 			$number = (new Number)->byID($defaultnumber);
 			if ($number) {
 				$this->fromNumber($number);
 			}else{
-				throw new defaultNumberException();
+				throw new DefaultNumberException();
 			}
 		}else{
-			throw new defaultNumberException();
+			throw new DefaultNumberException();
 		}
 	}
 	private function checkFromNumber($type){
 		if($type == 'receive'){
-			if(!safe::is_cellphone_ir($this->sender_number)){
-				throw new numberException;
+			if(!Safe::is_cellphone_ir($this->sender_number)){
+				throw new NumberException;
 			}
 		}elseif($type == 'send'){
-			if(!$this->sender_number instanceof number){
+			if(!$this->sender_number instanceof Number){
 				$sender_number = (new Number)->where('number', $this->sender_number)->getOne();
 				if ($sender_number) {
-					if($sender_number->status == number::active and $sender_number->gateway->status == gateway::active){
+					if($sender_number->status == number::active and $sender_number->gateway->status == GateWay::active){
 						$this->sender_number = $sender_number;
 					}else{
-						throw new deactivedNumberException;
+						throw new DeactivedNumberException;
 					}
 				}else{
-					throw new numberException;
+					throw new NumberException;
 				}
 			}
 
@@ -99,20 +99,20 @@ class api{
 	}
 	private function checkToNumber($type){
 		if($type == 'send'){
-			if(!safe::is_cellphone_ir($this->receiver_number)){
-				throw new numberException;
+			if(!Safe::is_cellphone_ir($this->receiver_number)){
+				throw new NumberException;
 			}
 		}elseif($type == 'receive'){
-			if(!$this->receiver_number instanceof number){
+			if(!$this->receiver_number instanceof Number){
 				$receiver_number = (new Number)->where('number', $this->receiver_number)->getOne();
 				if ($receiver_number) {
-					if($receiver_number->status == number::active and $receiver_number->gateway->status == gateway::active){
+					if($receiver_number->status == Number::active and $receiver_number->gateway->status == GateWay::active){
 						$this->receiver_number = $receiver_number;
 					}else{
-						throw new deactivedNumberException;
+						throw new DeactivedNumberException;
 					}
 				}else{
-					throw new numberException;
+					throw new NumberException;
 				}
 			}
 
@@ -129,7 +129,7 @@ class api{
 	public function receive($message){
 		$this->checkFromNumber('receive');
 		$this->checkToNumber('receive');
-		$sms = new get();
+		$sms = new Get();
 		$sms->receive_at = $this->time;
 		$sms->sender_number = $this->sender_number;
 		if($this->sender_user){
@@ -138,11 +138,11 @@ class api{
 		$sms->receiver_number = $this->receiver_number->id;
 		$sms->text = $message;
 		$sms->save();
-		events::trigger(new smsEvents\receive($sms));
+		Events::trigger(new SMSEvents\Receive($sms));
 		return true;
 	}
 	public function send($message = null){
-		$sms = new sent();
+		$sms = new Sent();
 		$sms->send_at = $this->time;
 		if($this->sender_number){
 			$this->checkFromNumber('send');
@@ -160,21 +160,16 @@ class api{
 		}
 		$sms->text = $message !== null ? $message : $this->message;
 		if($sms->send_at >= time()){
-			$sms->status = sent::queued;
+			$sms->status = Sent::queued;
 		}else{
-			$sms->status = sent::sending;
+			$sms->status = Sent::sending;
 		}
 		$sms->save();
 		if($sms->send_at >= time()){
 			$sms->send();
 		}
-		events::trigger(new smsEvents\send($sms));
+		Events::trigger(new SMSEvents\Send($sms));
 		return $sms->status;
 	}
 }
-class unkownLanguage extends \Exception{
 
-}
-class numberException extends \Exception{}
-class deactivedNumberException extends \Exception{}
-class defaultNumberException extends \Exception{}

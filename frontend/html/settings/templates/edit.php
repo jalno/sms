@@ -1,11 +1,11 @@
 <?php
 use \packages\base;
-use \packages\base\json;
-use \packages\base\translator;
+use \packages\base\Json;
+use \packages\base\Translator;
 use \packages\userpanel;
-use \packages\userpanel\date;
-use \packages\sms\gateway\number;
-use \themes\clipone\utility;
+use \packages\userpanel\Date;
+use \packages\sms\GateWay\Number;
+use \themes\clipone\Utility;
 
 $this->the_header();
 ?>
@@ -14,7 +14,7 @@ $this->the_header();
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-edit"></i>
-                <span><?php echo translator::trans("settings.sms.templates.edit"); ?></span>
+                <span><?php echo Translator::trans("settings.sms.templates.edit"); ?></span>
 				<div class="panel-tools">
 					<a class="btn btn-xs btn-link panel-collapse collapses" href="#"></a>
 				</div>
@@ -26,26 +26,26 @@ $this->the_header();
 						$this->createField(array(
 							'type' => 'select',
 							'name' => 'name',
-							'label' => translator::trans("sms.template.name"),
+							'label' => Translator::trans("sms.template.name"),
 							'options' => $this->getTemplatesForSelect()
 						));
 						$this->createField(array(
 							'type' => 'select',
 							'name' => 'lang',
-							'label' => translator::trans("sms.template.lang"),
+							'label' => Translator::trans("sms.template.lang"),
 							'options' => $this->getLanguagesForSelect()
 						));
 
 						$this->createField(array(
 							'type' => 'textarea',
 							'name' => 'text',
-							'label' => translator::trans("sms.template.text"),
+							'label' => Translator::trans("sms.template.text"),
 							'rows' => 4
 						));
 						$this->createField(array(
 							'name' => 'status',
 							'type' => 'select',
-							'label' => translator::trans("sms.template.status"),
+							'label' => Translator::trans("sms.template.status"),
 							'options' => $this->getTemplateStatusForSelect()
 						));
 						?>
@@ -55,8 +55,8 @@ $this->the_header();
 			                <table class="table table-variables">
 								<thead>
 									<tr>
-										<th><?php echo translator::trans('sms.template.variable.key'); ?></th>
-										<th><?php echo translator::trans('sms.template.variable.description'); ?></th>
+										<th><?php echo Translator::trans('sms.template.variable.key'); ?></th>
+										<th><?php echo Translator::trans('sms.template.variable.description'); ?></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -67,8 +67,8 @@ $this->the_header();
 					</div>
 					<div class="col-md-12">
 		                <p>
-		                    <a href="<?php echo userpanel\url('settings/sms/templates'); ?>" class="btn btn-light-grey"><i class="fa fa-chevron-circle-right"></i> <?php echo translator::trans('return'); ?></a>
-		                    <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> <?php echo translator::trans("submit"); ?></button>
+		                    <a href="<?php echo userpanel\url('settings/sms/templates'); ?>" class="btn btn-light-grey"><i class="fa fa-chevron-circle-right"></i> <?php echo Translator::trans('return'); ?></a>
+		                    <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> <?php echo Translator::trans("submit"); ?></button>
 		                </p>
 					</div>
                 </form>
