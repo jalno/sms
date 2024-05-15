@@ -1,32 +1,33 @@
 <?php
+
 namespace packages\sms\GateWay;
 
 use packages\base\DB\DBObject;
-use packages\base\Options;
 use packages\sms\GateWay;
 
 /**
- * @property \packages\sms\GateWay $gateway
- * @property string $number
- * @property int $status
+ * @property GateWay $gateway
+ * @property string  $number
+ * @property int     $status
  */
-class Number extends DBObject {
+class Number extends DBObject
+{
+    public const active = 1;
+    public const deactive = 2;
 
-	const active = 1;
-	const deactive = 2;
+    public static function byNumber(string $number): ?self
+    {
+        return (new self())->where('number', $number)->getOne();
+    }
 
-	public static function byNumber(string $number): ?self {
-		return (new self)->where('number', $number)->getOne();
-	}
-
-	protected $dbTable = "sms_gateways_numbers";
-	protected $primaryKey = "id";
-	protected $dbFields = array(
-		'gateway' => array('type' => 'int', 'required' => true),
-		'number' => array('type' => 'text', 'required' => true),
-		'status' => array('type' => 'int', 'required' => true)
-	);
-	protected $relations = array(
-		'gateway' => array('hasOne', GateWay::class, 'gateway')
-	);
+    protected $dbTable = 'sms_gateways_numbers';
+    protected $primaryKey = 'id';
+    protected $dbFields = [
+        'gateway' => ['type' => 'int', 'required' => true],
+        'number' => ['type' => 'text', 'required' => true],
+        'status' => ['type' => 'int', 'required' => true],
+    ];
+    protected $relations = [
+        'gateway' => ['hasOne', GateWay::class, 'gateway'],
+    ];
 }

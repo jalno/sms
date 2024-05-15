@@ -1,3 +1,7 @@
 <?php
+
 namespace packages\sms;
-class DeactivedNumberException extends \Exception{}
+
+class DeactivedNumberException extends \Exception
+{
+}

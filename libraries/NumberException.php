@@ -1,3 +1,7 @@
 <?php
+
 namespace packages\sms;
-class NumberException extends \Exception{}
+
+class NumberException extends \Exception
+{
+}

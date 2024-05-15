@@ -1,3 +1,7 @@
 <?php
+
 namespace packages\sms\Controllers;
-class SendException extends \Exception{}
+
+class SendException extends \Exception
+{
+}

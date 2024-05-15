@@ -1,5 +1,7 @@
 <?php
-namespace packages\sms;
-class UnkownLanguage extends \Exception{
 
+namespace packages\sms;
+
+class UnkownLanguage extends \Exception
+{
 }

@@ -1,20 +1,25 @@
 <?php
+
 namespace packages\sms\Views\Sent;
-use \packages\base\Views\Traits\Form as FormTrait;
-use \packages\sms\Authorization;
 
-class ListView extends \packages\sms\Views\ListView{
-	use FormTrait;
+use packages\base\Views\Traits\Form as FormTrait;
+use packages\sms\Authorization;
 
-	public bool $canSend;
+class ListView extends \packages\sms\Views\ListView
+{
+    use FormTrait;
 
-	static protected $navigation;
+    public bool $canSend;
 
-	function __construct(){
-		$this->canSend = Authorization::is_accessed('send');
-	}
+    protected static $navigation;
 
-	public static function onSourceLoad(){
-		self::$navigation = Authorization::is_accessed('sent_list');
-	}
+    public function __construct()
+    {
+        $this->canSend = Authorization::is_accessed('send');
+    }
+
+    public static function onSourceLoad()
+    {
+        self::$navigation = Authorization::is_accessed('sent_list');
+    }
 }

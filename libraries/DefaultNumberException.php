@@ -1,3 +1,7 @@
 <?php
+
 namespace packages\sms;
-class DefaultNumberException extends \Exception{}
+
+class DefaultNumberException extends \Exception
+{
+}
