@@ -25,7 +25,7 @@ class API
             $lang = Translator::getShortCodeLang();
         }
         if (!$lang) {
-            throw new UnkownLanguage();
+            throw new UnKownLanguage();
         }
         $template = new Template();
         $template->where('name', $name);

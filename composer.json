@@ -1,0 +1,30 @@
+{
+    "name": "jalno/sms",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "jalno/base": "@dev",
+        "jalno/userpanel": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "packages\\sms\\": [
+                "libraries/"
+            ],
+            "themes\\clipone\\Events\\": [
+                "frontend/libraries/Events/"
+            ],
+            "themes\\clipone\\Views\\": [
+                "frontend/libraries/Views/"
+            ],
+            "themes\\apital\\": [
+                "frontend/libraries/"
+            ],
+            "themes\\clipone\\Views\\SMS\\": [
+                "frontend/Views/"
+            ]
+        }
+    }
+}

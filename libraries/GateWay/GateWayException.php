@@ -2,7 +2,7 @@
 
 namespace packages\sms\GateWay;
 
-class GatewayException extends \Exception
+class GateWayException extends \Exception
 {
     private $data;
 
