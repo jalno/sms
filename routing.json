@@ -1,57 +1,57 @@
 [
 	{
-		"path": ["userpanel", "sms", "sent"],
-		"controller": "controllers\\sms@sent",
+		"path": "userpanel/sms/sent",
+		"controller": "packages/sms/Controllers/SMS@sent",
 		"method":"get"
 	},
 	{
-		"path": ["userpanel", "sms", "get"],
-		"controller": "controllers\\sms@get",
+		"path": "userpanel/sms/get",
+		"controller": "packages/sms/Controllers/SMS@get",
 		"method":"get"
 	},
 	{
-		"path": ["userpanel", "sms", "send"],
-		"controller": "controllers\\sms@send",
+		"path": "userpanel/sms/send",
+		"controller": "packages/sms/Controllers/SMS@send",
 		"method":["get","post"]
 	},
 	{
-		"path":["userpanel","settings","sms","gateways"],
-		"controller": "controllers\\settings\\gateways@listgateways",
+		"path":"userpanel/settings/sms/gateways",
+		"controller": "packages/sms/Controllers/Settings/GateWpackages/sms/ays@listgateways",
 		"method":"get"
 	},
 	{
-		"path":["userpanel","settings","sms","gateways","add"],
-		"controller": "controllers\\settings\\gateways@add",
+		"path":"userpanel/settings/sms/gateways/add",
+		"controller": "packages/sms/Controllers/Settings/GateWays@add",
 		"method":["get","post"]
 	},
 	{
 		"path":["userpanel","settings","sms","gateways","delete",{"type":"dynamic","name":"gateway", "regex":"/^\\d+$/"}],
-		"controller": "controllers\\settings\\gateways@delete",
+		"controller": "packages/sms/Controllers/Settings/GateWays@delete",
 		"method":["get","post"]
 	},
 	{
 		"path":["userpanel","settings","sms","gateways","edit",{"type":"dynamic","name":"gateway", "regex":"/^\\d+$/"}],
-		"controller": "controllers\\settings\\gateways@edit",
+		"controller": "packages/sms/Controllers/Settings/GateWays@edit",
 		"method":["get","post"]
 	},
 	{
-		"path":["userpanel","settings","sms","templates"],
-		"controller": "controllers\\settings\\templates@listtemplates",
+		"path":"userpanel/settings/sms/templates",
+		"controller": "packages/sms/Controllers/Settings/Templates@listtemplates",
 		"method":"get"
 	},
 	{
-		"path":["userpanel","settings","sms","templates","add"],
-		"controller": "controllers\\settings\\templates@add",
+		"path":"userpanel/settings/sms/templates/add",
+		"controller": "packages/sms/Controllers/Settings/Templates@add",
 		"method":["get","post"]
 	},
 	{
 		"path":["userpanel","settings","sms","templates","delete",{"type":"dynamic","name":"template", "regex":"/^\\d+$/"}],
-		"controller": "controllers\\settings\\templates@delete",
+		"controller": "packages/sms/Controllers/Settings/Templates@delete",
 		"method":["get","post"]
 	},
 	{
 		"path":["userpanel","settings","sms","templates","edit",{"type":"dynamic","name":"template", "regex":"/^\\d+$/"}],
-		"controller": "controllers\\settings\\templates@edit",
+		"controller": "packages/sms/Controllers/Settings/Templates@edit",
 		"method":["get","post"]
 	}
 ]
