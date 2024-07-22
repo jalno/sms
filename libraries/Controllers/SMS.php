@@ -18,6 +18,7 @@ use packages\sms\GateWay\Number;
 use packages\sms\Get;
 use packages\sms\Sent;
 use packages\sms\View;
+use themes\clipone\Views\SMS as Views;
 use packages\userpanel;
 use packages\userpanel\User;
 
@@ -28,7 +29,7 @@ class SMS extends Controller
     public function sent()
     {
         Authorization::haveOrFail('sent_list');
-        $view = View::byName(\packages\sms\Views\Sent\ListView::class);
+        $view = View::byName(Views\Sent\ListView::class);
         $types = Authorization::childrenTypes();
         $sent_list_anonymous = Authorization::is_accessed('sent_list_anonymous');
         $inputsRules = [
@@ -152,7 +153,7 @@ class SMS extends Controller
     public function get($name)
     {
         Authorization::haveOrFail('get_list');
-        $view = View::byName(\packages\sms\Views\Get\ListView::class);
+        $view = View::byName(Views\Get\ListView::class);
         $types = Authorization::childrenTypes();
         $get_list_anonymous = Authorization::is_accessed('get_list_anonymous');
         $inputsRules = [

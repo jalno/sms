@@ -17,6 +17,7 @@ use packages\sms\GateWay;
 use packages\sms\GateWay\Number;
 use packages\sms\View;
 use packages\userpanel;
+use themes\clipone\Views\SMS as Views;
 
 class GateWays extends Controller
 {
@@ -25,7 +26,7 @@ class GateWays extends Controller
     public function listgateways()
     {
         Authorization::haveOrFail('settings_gateways_list');
-        $view = View::byName(\packages\sms\Views\Settings\GateWays\ListView::class);
+        $view = View::byName(Views\Settings\GateWays\ListView::class);
         $gateways = new GateWaysEvent();
         Events::trigger($gateways);
         $gateway = new GateWay();
@@ -211,7 +212,7 @@ class GateWays extends Controller
         if (!$gateway) {
             throw new NotFound();
         }
-        $view = View::byName(\packages\sms\Views\Settings\GateWays\Delete::class);
+        $view = View::byName(Views\Settings\GateWays\Delete::class);
         $view->setGateway($gateway);
         if (HTTP::is_post()) {
             $gateway->delete();
@@ -233,7 +234,7 @@ class GateWays extends Controller
         if (!$gatewayObj) {
             throw new NotFound();
         }
-        $view = View::byName(\packages\sms\Views\Settings\GateWays\Edit::class);
+        $view = View::byName(Views\Settings\GateWays\Edit::class);
         $gateways = new GateWaysEvent();
         Events::trigger($gateways);
         $view->setGateways($gateways->get());

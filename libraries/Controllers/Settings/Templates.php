@@ -15,6 +15,7 @@ use packages\sms\Events\Templates as TemplatesEvent;
 use packages\sms\Template;
 use packages\sms\View;
 use packages\userpanel;
+use themes\clipone\Views\SMS as Views;
 
 class Templates extends Controller
 {
@@ -23,7 +24,7 @@ class Templates extends Controller
     public function listtemplates()
     {
         Authorization::haveOrFail('settings_templates_list');
-        $view = View::byName('\\packages\\sms\\views\\settings\\templates\\listview');
+        $view = View::byName(Views\Settings\Templates\ListView::class);
         $template = new Template();
         $inputsRules = [
             'id' => [
@@ -102,7 +103,7 @@ class Templates extends Controller
     public function add()
     {
         Authorization::haveOrFail('settings_templates_add');
-        $view = View::byName(\packages\sms\Views\Settings\Templates\Add::class);
+        $view = View::byName(Views\Settings\Templates\Add::class);
         $templates = new TemplatesEvent();
         $view->setTemplates($templates->get());
         if (HTTP::is_post()) {
@@ -163,7 +164,7 @@ class Templates extends Controller
         if (!$template) {
             throw new NotFound();
         }
-        $view = View::byName(\packages\sms\Views\Settings\Templates\Delete::class);
+        $view = View::byName(Views\Settings\Templates\Delete::class);
         $view->setTemplate($template);
         if (HTTP::is_post()) {
             $template->delete();
@@ -185,7 +186,7 @@ class Templates extends Controller
         if (!$templateObj) {
             throw new NotFound();
         }
-        $view = View::byName(\packages\sms\Views\Settings\Templates\Edit::class);
+        $view = View::byName(Views\Settings\Templates\Edit::class);
         $view->setTemplate($templateObj);
         $templates = new TemplatesEvent();
         $view->setTemplates($templates->get());
