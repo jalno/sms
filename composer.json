@@ -10,7 +10,7 @@
     },
     "extra": {
         "jalno": {
-            "manifest": "package.json"
+            "manifest": "jalno.json"
         }
     },
     "autoload": {
@@ -23,9 +23,6 @@
             ],
             "themes\\clipone\\Views\\": [
                 "frontend/libraries/Views/"
-            ],
-            "themes\\apital\\": [
-                "frontend/libraries/"
             ],
             "themes\\clipone\\Views\\SMS\\": [
                 "frontend/Views"
