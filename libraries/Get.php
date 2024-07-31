@@ -6,6 +6,7 @@ use packages\base\Date;
 use packages\base\DB\DBObject;
 use packages\base\Utility\Safe;
 use packages\userpanel\User;
+use packages\sms\GateWay\Number;
 
 class Get extends DBObject
 {
@@ -22,8 +23,8 @@ class Get extends DBObject
         'status' => ['type' => 'int', 'required' => true],
     ];
     protected $relations = [
-        'sender_user' => ['hasOne', 'packages\\userpanel\\user', 'sender_user'],
-        'receiver_number' => ['hasOne', 'packages\\sms\\gateway\\number', 'receiver_number'],
+        'sender_user' => ['hasOne', User::class, 'sender_user'],
+        'receiver_number' => ['hasOne', Number::class, 'receiver_number'],
     ];
 
     public function preLoad($data)

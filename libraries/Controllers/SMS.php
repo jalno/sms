@@ -269,7 +269,7 @@ class SMS extends Controller
 
     public function send()
     {
-        $view = View::byName('\\packages\\sms\\views\\send');
+        $view = View::byName(Views\Send::class);
         Authorization::haveOrFail('send');
         DB::join('sms_gateways', 'sms_gateways_numbers.gateway=sms_gateways.id', 'inner');
         DB::where('sms_gateways.status', GateWay::active);

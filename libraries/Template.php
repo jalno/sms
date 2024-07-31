@@ -48,7 +48,7 @@ class Template extends DBObject
 
     public function addVariable($name)
     {
-        if (false !== strpos($name, '\\') and is_subclass_of($name, '\\packages\\base\\db\\dbObject')) {
+        if (false !== strpos($name, '\\') and is_subclass_of($name, DBObject::class)) {
             $obj = new $name();
             $name = explode('\\', $name);
             $name = $name[count($name) - 1];

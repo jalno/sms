@@ -1,4 +1,3 @@
-import * as $ from "jquery";
 import "jquery-validation";
 import "bootstrap";
 import "bootstrap-inputmsg";
