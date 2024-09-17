@@ -116,7 +116,7 @@ class GateWays extends Controller
     public function add()
     {
         Authorization::haveOrFail('settings_gateways_add');
-        $view = View::byName('\\packages\\sms\\views\\settings\\gateways\\add');
+        $view = View::byName(Views\Settings\GateWays\Add::class);
         $gateways = new GateWaysEvent();
         Events::trigger($gateways);
         $view->setGateways($gateways);

@@ -2,6 +2,7 @@
 
 namespace packages\sms;
 
+
 use packages\base\DB\DBObject;
 use packages\base\Exception;
 use packages\sms\{GateWay\Param};
@@ -20,8 +21,8 @@ class GateWay extends DBObject
         'status' => ['type' => 'int', 'required' => true],
     ];
     protected $relations = [
-        'numbers' => ['hasMany', 'packages\\sms\\gateway\\number', 'gateway'],
-        'params' => ['hasMany', 'packages\\sms\\gateway\\param', 'gateway'],
+        'numbers' => ['hasMany', GateWay\Number::class, 'gateway'],
+        'params' => ['hasMany', GateWay\Param::class, 'gateway'],
     ];
 
     public function __construct($data = null, $connection = 'default')
