@@ -18,7 +18,7 @@ class Send extends SMSend
 
     public function __beforeLoad()
     {
-        $this->setTitle(Translator::trans('sms.send'));
+        $this->setTitle(t('sms.send'));
         $this->setNavigation();
         $this->addBodyClass('smsSend');
     }
@@ -39,12 +39,12 @@ class Send extends SMSend
     protected function setNavigation()
     {
         $item = new MenuItem('sms');
-        $item->setTitle(Translator::trans('smses'));
+        $item->setTitle(t('smses'));
         $item->setIcon('fa fa-envelope');
         Breadcrumb::addItem($item);
 
         $item = new MenuItem('send');
-        $item->setTitle(Translator::trans('sms.send'));
+        $item->setTitle(t('sms.send'));
         $item->setURL(userpanel\url('sms/send'));
         Breadcrumb::addItem($item);
         Navigation::active('sms/send');

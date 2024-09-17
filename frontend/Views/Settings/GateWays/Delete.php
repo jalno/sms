@@ -13,7 +13,7 @@ class Delete extends DeleteView
 
     public function __beforeLoad()
     {
-        $this->setTitle(Translator::trans('settings.sms.gateways.delete'));
+        $this->setTitle(t('settings.sms.gateways.delete'));
         Navigation::active('settings/sms/gateways');
     }
 }

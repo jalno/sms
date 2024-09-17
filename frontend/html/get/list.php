@@ -9,10 +9,10 @@ $this->the_header();
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<i class="fa fa-envelope"></i> <?php echo Translator::trans('sms.get'); ?>
+				<i class="fa fa-envelope"></i> <?php echo t('sms.get'); ?>
 				<div class="panel-tools">
-					<a class="btn btn-xs btn-link tooltips" title="<?php echo Translator::trans('search'); ?>" href="#search" data-toggle="modal"><i class="fa fa-search"></i></a>
-					<?php if ($this->canSend) { ?><a class="btn btn-xs btn-link tooltips" title="<?php echo Translator::trans('sms.send'); ?>" href="<?php echo userpanel\url('sms/send'); ?>"><i class="fa fa-plus"></i></a><?php } ?>
+					<a class="btn btn-xs btn-link tooltips" title="<?php echo t('search'); ?>" href="#search" data-toggle="modal"><i class="fa fa-search"></i></a>
+					<?php if ($this->canSend) { ?><a class="btn btn-xs btn-link tooltips" title="<?php echo t('sms.send'); ?>" href="<?php echo userpanel\url('sms/send'); ?>"><i class="fa fa-plus"></i></a><?php } ?>
 					<a class="btn btn-xs btn-link panel-collapse collapses" href="#"></a>
 				</div>
 			</div>
@@ -22,11 +22,11 @@ $this->the_header();
 						<thead>
 							<tr>
 								<th class="center">#</th>
-								<th><?php echo Translator::trans('sms.receive_at'); ?></th>
-								<th><?php echo Translator::trans('sms.user.sender'); ?></th>
-								<th><?php echo Translator::trans('sms.number.sender'); ?></th>
-								<th><?php echo Translator::trans('sms.number.receiver'); ?></th>
-								<th><?php echo Translator::trans('sms.text'); ?></th>
+								<th><?php echo t('sms.receive_at'); ?></th>
+								<th><?php echo t('sms.user.sender'); ?></th>
+								<th><?php echo t('sms.number.sender'); ?></th>
+								<th><?php echo t('sms.number.receiver'); ?></th>
+								<th><?php echo t('sms.text'); ?></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -40,7 +40,7 @@ $this->the_header();
 									<a href="<?php echo userpanel\url('users/view/'.$row->sender_user->id); ?>"><?php echo $row->sender_user->name.' '.$row->sender_user->lastname; ?></a>
 									<?php
 								} else {
-								    echo Translator::trans('sms.user.sender.unknown');
+								    echo t('sms.user.sender.unknown');
 								}
                                 ?></td>
 								<td class="ltr"><?php echo $row->sender_number; ?></td>
@@ -62,7 +62,7 @@ $this->the_header();
 <div class="modal fade" id="search" tabindex="-1" data-show="true" role="dialog">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h4 class="modal-title"><?php echo Translator::trans('search'); ?></h4>
+		<h4 class="modal-title"><?php echo t('search'); ?></h4>
 	</div>
 	<div class="modal-body">
 		<form id="smslist_search" class="form-horizontal" action="<?php echo userpanel\url('sms/get'); ?>" method="GET">
@@ -73,7 +73,7 @@ $feilds = [
     [
         'name' => 'id',
         'type' => 'number',
-        'label' => Translator::trans('sms.id'),
+        'label' => t('sms.id'),
         'ltr' => true,
     ],
     [
@@ -82,12 +82,12 @@ $feilds = [
     ],
     [
         'name' => 'sender_user_name',
-        'label' => Translator::trans('sms.user.sender'),
+        'label' => t('sms.user.sender'),
     ],
     [
         'type' => 'number',
         'name' => 'sender_number',
-        'label' => Translator::trans('sms.number.sender'),
+        'label' => t('sms.number.sender'),
         'ltr' => true,
     ],
     [
@@ -96,17 +96,17 @@ $feilds = [
     ],
     [
         'name' => 'text',
-        'label' => Translator::trans('sms.text'),
+        'label' => t('sms.text'),
     ],
     [
         'name' => 'status',
         'type' => 'select',
-        'label' => Translator::trans('sms.get.status'),
+        'label' => t('sms.get.status'),
         'options' => $this->getStatusForSelect(),
     ],
     [
         'type' => 'select',
-        'label' => Translator::trans('search.comparison'),
+        'label' => t('search.comparison'),
         'name' => 'comparison',
         'options' => $this->getComparisonsForSelect(),
     ],
@@ -118,8 +118,8 @@ foreach ($feilds as $input) {
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button type="submit" form="smslist_search" class="btn btn-success"><?php echo Translator::trans('search'); ?></button>
-		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo Translator::trans('cancel'); ?></button>
+		<button type="submit" form="smslist_search" class="btn btn-success"><?php echo t('search'); ?></button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo t('cancel'); ?></button>
 	</div>
 </div>
 <?php

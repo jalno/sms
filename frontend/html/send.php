@@ -9,7 +9,7 @@ $this->the_header();
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-plus"></i>
-                <span><?php echo Translator::trans('sms.send'); ?></span>
+                <span><?php echo t('sms.send'); ?></span>
 				<div class="panel-tools">
 					<a class="btn btn-xs btn-link panel-collapse collapses" href="#"></a>
 				</div>
@@ -20,26 +20,26 @@ $this->the_header();
                     $this->createField([
                         'type' => 'select',
                         'name' => 'from',
-                        'label' => Translator::trans('sms.number.sender'),
+                        'label' => t('sms.number.sender'),
                         'ltr' => true,
                         'options' => $this->getNumbersForSelect(),
                     ]);
 $this->createField([
     'name' => 'to',
-    'label' => Translator::trans('sms.number.reciver'),
+    'label' => t('sms.number.reciver'),
     'ltr' => true,
 ]);
 $this->createField([
     'type' => 'textarea',
     'name' => 'text',
     'class' => 'autosize form-control',
-    'label' => Translator::trans('sms.text'),
+    'label' => t('sms.text'),
 ]);
 ?>
 					<hr>
 					<div class="row">
 						<div class="col-md-4 col-md-offset-4">
-							<button class="btn btn-success btn-block" type="submit"><i class="fa fa-paper-plane"></i><?php echo Translator::trans('send'); ?></button>
+							<button class="btn btn-success btn-block" type="submit"><i class="fa fa-paper-plane"></i><?php echo t('send'); ?></button>
 						</div>
 					</div>
                 </form>

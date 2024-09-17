@@ -59,10 +59,10 @@ class Search
         foreach ($gets as $get) {
             $result = new Link();
             $result->setLink(userpanel\url('sms/get', ['id' => $get->id]));
-            $result->setTitle(Translator::trans('sms.get.bySenderNumber', [
+            $result->setTitle(t('sms.get.bySenderNumber', [
                 'senderNumber' => $get->sender_number,
             ]));
-            $result->setDescription(Translator::trans('sms.get.description', [
+            $result->setDescription(t('sms.get.description', [
                 'receive_at' => Date::format('Y/m/d H:i:s', $get->receive_at),
                 'text' => mb_substr($get->text, 0, 70),
             ]));
@@ -102,10 +102,10 @@ class Search
         foreach ($sents as $sent) {
             $result = new Link();
             $result->setLink(userpanel\url('sms/sent', ['id' => $sent->id]));
-            $result->setTitle(Translator::trans('sms.sent.byReceiverNumber', [
+            $result->setTitle(t('sms.sent.byReceiverNumber', [
                 'receiverNumber' => $sent->receiver_number,
             ]));
-            $result->setDescription(Translator::trans('sms.sent.description', [
+            $result->setDescription(t('sms.sent.description', [
                 'send_at' => Date::format('Y/m/d H:i:s', $sent->send_at),
                 'text' => mb_substr($sent->text, 0, 70),
             ]));

@@ -16,7 +16,7 @@ class Edit extends EditView
 
     public function __beforeLoad()
     {
-        $this->setTitle(Translator::trans('settings.sms.templates.edit'));
+        $this->setTitle(t('settings.sms.templates.edit'));
         $this->setNavigation();
         $this->addBodyClass('sms_templates');
     }
@@ -35,14 +35,14 @@ class Edit extends EditView
             if ($template->name == $formname) {
                 $found = true;
             }
-            $title = Translator::trans('sms.template.name.'.$template->name);
+            $title = t('sms.template.name.'.$template->name);
             $variables = [];
             foreach ($template->variables as $variable) {
                 $description = '';
                 $name = explode('->', $variable);
                 for ($x = 0; $x != count($name) and !$description; ++$x) {
                     $variable_name = implode('->', array_slice($name, $x));
-                    $description = Translator::trans('sms.template.variable.'.$variable_name);
+                    $description = t('sms.template.variable.'.$variable_name);
                 }
                 $variables[] = [
                     'key' => $variable,
@@ -71,11 +71,11 @@ class Edit extends EditView
     {
         $options = [
             [
-                'title' => Translator::trans('sms.template.status.active'),
+                'title' => t('sms.template.status.active'),
                 'value' => Template::active,
             ],
             [
-                'title' => Translator::trans('sms.template.status.deactive'),
+                'title' => t('sms.template.status.deactive'),
                 'value' => Template::deactive,
             ],
         ];
@@ -88,7 +88,7 @@ class Edit extends EditView
         $options = [];
         foreach (Translator::$allowlangs as $lang) {
             $options[] = [
-                'title' => Translator::trans('translations.langs.'.$lang),
+                'title' => t('translations.langs.'.$lang),
                 'value' => $lang,
             ];
         }

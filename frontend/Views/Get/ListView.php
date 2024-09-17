@@ -21,7 +21,7 @@ class ListView extends GetList
 
     public function __beforeLoad()
     {
-        $this->setTitle(Translator::trans('sms.get'));
+        $this->setTitle(t('sms.get'));
         Navigation::active('sms/get');
         $this->addBodyClass('smslist');
         $this->setUserInput();
@@ -31,15 +31,15 @@ class ListView extends GetList
     {
         return [
             [
-                'title' => Translator::trans('choose'),
+                'title' => t('choose'),
                 'value' => '',
             ],
             [
-                'title' => Translator::trans('sms.get.status.unread'),
+                'title' => t('sms.get.status.unread'),
                 'value' => Get::unread,
             ],
             [
-                'title' => Translator::trans('sms.get.status.read'),
+                'title' => t('sms.get.status.read'),
                 'value' => Get::read,
             ],
         ];
@@ -49,15 +49,15 @@ class ListView extends GetList
     {
         return [
             [
-                'title' => Translator::trans('search.comparison.contains'),
+                'title' => t('search.comparison.contains'),
                 'value' => 'contains',
             ],
             [
-                'title' => Translator::trans('search.comparison.equals'),
+                'title' => t('search.comparison.equals'),
                 'value' => 'equals',
             ],
             [
-                'title' => Translator::trans('search.comparison.startswith'),
+                'title' => t('search.comparison.startswith'),
                 'value' => 'startswith',
             ],
         ];
@@ -81,12 +81,12 @@ class ListView extends GetList
         if (parent::$navigation) {
             if (!$sms = Navigation::getByName('sms')) {
                 $sms = new MenuItem('sms');
-                $sms->setTitle(Translator::trans('smses'));
+                $sms->setTitle(t('smses'));
                 $sms->setIcon('fa fa-envelope');
                 Navigation::addItem($sms);
             }
             $get = new MenuItem('get');
-            $get->setTitle(Translator::trans('sms.get'));
+            $get->setTitle(t('sms.get'));
             $get->setURL(userpanel\url('sms/get'));
             $get->setIcon('clip-download');
             $sms->addItem($get);

@@ -22,7 +22,7 @@ class API
     public function template($name, $parameters = [], $lang = null)
     {
         if (null === $lang) {
-            $lang = Translator::getShortCodeLang();
+            $lang = app()->getLocale();
         }
         if (!$lang) {
             throw new UnKownLanguage();

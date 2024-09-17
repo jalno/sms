@@ -11,7 +11,7 @@ $this->the_header();
         <div class="panel panel-default">
             <div class="panel-heading">
                 <i class="fa fa-edit"></i>
-                <span><?php echo Translator::trans('settings.sms.gateways.edit'); ?></span>
+                <span><?php echo t('settings.sms.gateways.edit'); ?></span>
 				<div class="panel-tools">
 					<a class="btn btn-xs btn-link panel-collapse collapses" href="#"></a>
 				</div>
@@ -24,18 +24,18 @@ $this->the_header();
 							<?php
                             $this->createField([
                                 'name' => 'title',
-                                'label' => Translator::trans('sms.gateway.title'),
+                                'label' => t('sms.gateway.title'),
                             ]);
 $this->createField([
     'name' => 'gateway',
     'type' => 'select',
-    'label' => Translator::trans('sms.gateway.type'),
+    'label' => t('sms.gateway.type'),
     'options' => $this->getGatewaysForSelect(),
 ]);
 $this->createField([
     'name' => 'status',
     'type' => 'select',
-    'label' => Translator::trans('sms.gateway.status'),
+    'label' => t('sms.gateway.status'),
     'options' => $this->getGatewayStatusForSelect(),
 ]);
 ?>
@@ -44,11 +44,11 @@ $this->createField([
 								<thead>
 									<tr>
 										<th>#</th>
-										<th><?php echo Translator::trans('sms.number'); ?></th>
-										<th><?php echo Translator::trans('sms.number.status'); ?></th>
-										<th><?php echo Translator::trans('sms.number.primary'); ?></th>
+										<th><?php echo t('sms.number'); ?></th>
+										<th><?php echo t('sms.number.status'); ?></th>
+										<th><?php echo t('sms.number.primary'); ?></th>
 										<th class="table-tools">
-											<a class="btn btn-xs btn-link btn-number-add tooltips" title="<?php echo Translator::trans('sms.number.add'); ?>" href="#number-add" data-toggle="modal"><i class="fa fa-plus"></i></a>
+											<a class="btn btn-xs btn-link btn-number-add tooltips" title="<?php echo t('sms.number.add'); ?>" href="#number-add" data-toggle="modal"><i class="fa fa-plus"></i></a>
 										</th>
 									</tr>
 								</thead>
@@ -70,8 +70,8 @@ foreach ($this->getGateways() as $gateway) {
 						</div>
 						<div class="col-md-12">
 			                <p>
-			                    <a href="<?php echo userpanel\url('settings/sms/gateways'); ?>" class="btn btn-light-grey"><i class="fa fa-chevron-circle-right"></i> <?php echo Translator::trans('return'); ?></a>
-			                    <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> <?php echo Translator::trans('submit'); ?></button>
+			                    <a href="<?php echo userpanel\url('settings/sms/gateways'); ?>" class="btn btn-light-grey"><i class="fa fa-chevron-circle-right"></i> <?php echo t('return'); ?></a>
+			                    <button type="submit" class="btn btn-success"><i class="fa fa-check-square-o"></i> <?php echo t('submit'); ?></button>
 			                </p>
 						</div>
 	                </form>
@@ -83,7 +83,7 @@ foreach ($this->getGateways() as $gateway) {
 <div class="modal fade" id="number-add" tabindex="-1" data-show="true" role="dialog">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h4 class="modal-title"><?php echo Translator::trans('sms.number.add'); ?></h4>
+		<h4 class="modal-title"><?php echo t('sms.number.add'); ?></h4>
 	</div>
 	<div class="modal-body">
 		<form id="number_add_form" class="form-horizontal" action="#" method="POST">
@@ -93,27 +93,27 @@ $feilds = [
     [
         'type' => 'number',
         'name' => 'number',
-        'label' => Translator::trans('sms.number'),
+        'label' => t('sms.number'),
         'ltr' => true,
     ],
     [
         'type' => 'select',
         'name' => 'status',
-        'label' => Translator::trans('sms.number.status'),
+        'label' => t('sms.number.status'),
         'options' => [
             [
                 'value' => Number::active,
-                'title' => Translator::trans('sms.number.status.active'),
+                'title' => t('sms.number.status.active'),
             ],
             [
                 'value' => Number::deactive,
-                'title' => Translator::trans('sms.number.status.deactive'),
+                'title' => t('sms.number.status.deactive'),
             ],
         ],
     ],
     [
         'type' => 'checkbox',
-        'label' => Translator::trans('sms.number.primary'),
+        'label' => t('sms.number.primary'),
         'name' => 'primary',
         'options' => [
             [
@@ -129,14 +129,14 @@ foreach ($feilds as $input) {
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button type="submit" form="number_add_form" class="btn btn-success"><?php echo Translator::trans('submit'); ?></button>
-		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo Translator::trans('cancel'); ?></button>
+		<button type="submit" form="number_add_form" class="btn btn-success"><?php echo t('submit'); ?></button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo t('cancel'); ?></button>
 	</div>
 </div>
 <div class="modal fade" id="number-delete" tabindex="-1" data-show="true" role="dialog">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		<h4 class="modal-title"><?php echo Translator::trans('sms.number.delete'); ?></h4>
+		<h4 class="modal-title"><?php echo t('sms.number.delete'); ?></h4>
 	</div>
 	<div class="modal-body">
 		<form id="number_delete_form" class="form-horizontal" action="#" method="POST">
@@ -145,8 +145,8 @@ foreach ($feilds as $input) {
 		</form>
 	</div>
 	<div class="modal-footer">
-		<button type="submit" form="number_delete_form" class="btn btn-danger"><?php echo Translator::trans('submit'); ?></button>
-		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo Translator::trans('cancel'); ?></button>
+		<button type="submit" form="number_delete_form" class="btn btn-danger"><?php echo t('submit'); ?></button>
+		<button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true"><?php echo t('cancel'); ?></button>
 	</div>
 </div>
 <?php

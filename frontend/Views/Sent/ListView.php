@@ -21,7 +21,7 @@ class ListView extends SentList
 
     public function __beforeLoad()
     {
-        $this->setTitle(Translator::trans('sms.sent'));
+        $this->setTitle(t('sms.sent'));
         Navigation::active('sms/sent');
         $this->addBodyClass('smslist');
         $this->setUserInput();
@@ -31,23 +31,23 @@ class ListView extends SentList
     {
         return [
             [
-                'title' => Translator::trans('choose'),
+                'title' => t('choose'),
                 'value' => '',
             ],
             [
-                'title' => Translator::trans('sms.sent.status.queued'),
+                'title' => t('sms.sent.status.queued'),
                 'value' => Sent::queued,
             ],
             [
-                'title' => Translator::trans('sms.sent.status.sending'),
+                'title' => t('sms.sent.status.sending'),
                 'value' => Sent::sending,
             ],
             [
-                'title' => Translator::trans('sms.sent.status.sent'),
+                'title' => t('sms.sent.status.sent'),
                 'value' => Sent::sent,
             ],
             [
-                'title' => Translator::trans('sms.sent.status.failed'),
+                'title' => t('sms.sent.status.failed'),
                 'value' => Sent::failed,
             ],
         ];
@@ -57,15 +57,15 @@ class ListView extends SentList
     {
         return [
             [
-                'title' => Translator::trans('search.comparison.contains'),
+                'title' => t('search.comparison.contains'),
                 'value' => 'contains',
             ],
             [
-                'title' => Translator::trans('search.comparison.equals'),
+                'title' => t('search.comparison.equals'),
                 'value' => 'equals',
             ],
             [
-                'title' => Translator::trans('search.comparison.startswith'),
+                'title' => t('search.comparison.startswith'),
                 'value' => 'startswith',
             ],
         ];
@@ -91,12 +91,12 @@ class ListView extends SentList
         if (parent::$navigation) {
             if (!$sms = Navigation::getByName('sms')) {
                 $sms = new MenuItem('sms');
-                $sms->setTitle(Translator::trans('smses'));
+                $sms->setTitle(t('smses'));
                 $sms->setIcon('fa fa-envelope');
                 Navigation::addItem($sms);
             }
             $sent = new MenuItem('sent');
-            $sent->setTitle(Translator::trans('sms.sent'));
+            $sent->setTitle(t('sms.sent'));
             $sent->setURL(userpanel\url('sms/sent'));
             $sent->setIcon('clip-upload');
             $sms->addItem($sent);

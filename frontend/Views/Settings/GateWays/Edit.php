@@ -17,7 +17,7 @@ class Edit extends EditView
 
     public function __beforeLoad()
     {
-        $this->setTitle(Translator::trans('settings.sms.gateways.edit'));
+        $this->setTitle(t('settings.sms.gateways.edit'));
         $this->setNavigation();
         $this->addBodyClass('sms_gateways');
     }
@@ -31,7 +31,7 @@ class Edit extends EditView
     {
         $options = [];
         foreach ($this->getGateways() as $gateway) {
-            $title = Translator::trans('sms.gateway.'.$gateway->getName());
+            $title = t('sms.gateway.'.$gateway->getName());
             $options[] = [
                 'value' => $gateway->getName(),
                 'title' => $title ? $title : $gateway->getName(),
@@ -45,11 +45,11 @@ class Edit extends EditView
     {
         $options = [
             [
-                'title' => Translator::trans('sms.gateway.status.active'),
+                'title' => t('sms.gateway.status.active'),
                 'value' => GateWay::active,
             ],
             [
-                'title' => Translator::trans('sms.gateway.status.deactive'),
+                'title' => t('sms.gateway.status.deactive'),
                 'value' => GateWay::deactive,
             ],
         ];

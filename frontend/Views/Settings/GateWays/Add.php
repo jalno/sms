@@ -19,7 +19,7 @@ class Add extends AddView
 
     public function __beforeLoad()
     {
-        $this->setTitle(Translator::trans('settings.sms.gateways.add'));
+        $this->setTitle(t('settings.sms.gateways.add'));
         $this->setNavigation();
         $this->addAssets();
         $this->addBodyClass('sms_gateways');
@@ -33,7 +33,7 @@ class Add extends AddView
     private function setNavigation()
     {
         $add = new Navigation\MenuItem('gateway_add');
-        $add->setTitle(Translator::trans('add'));
+        $add->setTitle(t('add'));
         $add->setIcon('fa fa-plus');
         $add->setURL(userpanel\url('settings/sms/gateways/add'));
         // breadcrumb::addItem($add);
@@ -44,7 +44,7 @@ class Add extends AddView
     {
         $options = [];
         foreach ($this->getGateways()->get() as $gateway) {
-            $title = Translator::trans('sms.gateway.'.$gateway->getName());
+            $title = t('sms.gateway.'.$gateway->getName());
             $options[] = [
                 'value' => $gateway->getName(),
                 'title' => $title ? $title : $gateway->getName(),
@@ -58,11 +58,11 @@ class Add extends AddView
     {
         $options = [
             [
-                'title' => Translator::trans('sms.gateway.status.active'),
+                'title' => t('sms.gateway.status.active'),
                 'value' => GateWay::active,
             ],
             [
-                'title' => Translator::trans('sms.gateway.status.deactive'),
+                'title' => t('sms.gateway.status.deactive'),
                 'value' => GateWay::deactive,
             ],
         ];

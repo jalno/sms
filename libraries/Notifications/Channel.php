@@ -32,7 +32,7 @@ class Channel implements IChannel
 
     public function canNotify(EventInterface $event): bool
     {
-        $lang = Translator::getShortCodeLang();
+        $lang = app()->getLocale();
         $template = new Template();
         $template->where('name', $event->getName());
         $template->where('lang', $lang);
