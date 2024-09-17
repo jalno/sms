@@ -12,7 +12,6 @@ class ListView extends \packages\userpanel\Views\ListView
     protected $canAdd;
     protected $canEdit;
     protected $canDel;
-    protected static $navigation;
 
     public function __construct()
     {
@@ -29,10 +28,5 @@ class ListView extends \packages\userpanel\Views\ListView
     public function setGateways(GateWays $gateways)
     {
         $this->setData($gateways, 'gateways');
-    }
-
-    public static function onSourceLoad()
-    {
-        self::$navigation = Authorization::is_accessed('settings_gateways_list');
     }
 }

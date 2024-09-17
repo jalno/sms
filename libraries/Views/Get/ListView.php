@@ -9,15 +9,9 @@ class ListView extends \packages\sms\Views\ListView
 {
     use FormTrait;
     protected $canSend;
-    protected static $navigation;
 
     public function __construct()
     {
         $this->canSend = Authorization::is_accessed('send');
-    }
-
-    public static function onSourceLoad()
-    {
-        self::$navigation = Authorization::is_accessed('get_list');
     }
 }

@@ -11,15 +11,8 @@ class ListView extends \packages\sms\Views\ListView
 
     public bool $canSend;
 
-    protected static $navigation;
-
     public function __construct()
     {
         $this->canSend = Authorization::is_accessed('send');
-    }
-
-    public static function onSourceLoad()
-    {
-        self::$navigation = Authorization::is_accessed('sent_list');
     }
 }

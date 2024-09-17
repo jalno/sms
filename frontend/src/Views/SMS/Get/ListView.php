@@ -2,13 +2,10 @@
 
 namespace themes\clipone\Views\SMS\Get;
 
-use packages\base\Translator;
 use packages\sms\Get;
 use packages\sms\Views\Get\ListView as GetList;
-use packages\userpanel;
 use packages\userpanel\User;
 use themes\clipone\Navigation;
-use themes\clipone\Navigation\MenuItem;
 use themes\clipone\Views\FormTrait;
 use themes\clipone\Views\ListTrait;
 use themes\clipone\ViewTrait;
@@ -72,24 +69,6 @@ class ListView extends GetList
         $user = $this->getDataForm('sender_user');
         if ($user and $user = User::byId($user)) {
             $this->setDataForm($user->name, 'sender_user_name');
-        }
-    }
-
-    public static function onSourceLoad()
-    {
-        parent::onSourceLoad();
-        if (parent::$navigation) {
-            if (!$sms = Navigation::getByName('sms')) {
-                $sms = new MenuItem('sms');
-                $sms->setTitle(t('smses'));
-                $sms->setIcon('fa fa-envelope');
-                Navigation::addItem($sms);
-            }
-            $get = new MenuItem('get');
-            $get->setTitle(t('sms.get'));
-            $get->setURL(userpanel\url('sms/get'));
-            $get->setIcon('clip-download');
-            $sms->addItem($get);
         }
     }
 }

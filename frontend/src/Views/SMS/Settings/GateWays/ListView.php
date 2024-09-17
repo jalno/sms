@@ -48,27 +48,6 @@ class ListView extends GateWaysListView
         ];
     }
 
-    public static function onSourceLoad()
-    {
-        parent::onSourceLoad();
-        if (parent::$navigation) {
-            $settings = Navigation::getByName('settings');
-            if (!$sms = Navigation::getByName('settings/sms')) {
-                $sms = new MenuItem('sms');
-                $sms->setTitle(t('settings.sms'));
-                $sms->setIcon('fa fa-envelope');
-                if ($settings) {
-                    $settings->addItem($sms);
-                }
-            }
-            $gateways = new MenuItem('gateways');
-            $gateways->setTitle(t('settings.sms.gateways'));
-            $gateways->setURL(userpanel\url('settings/sms/gateways'));
-            $gateways->setIcon('fa fa-rss');
-            $sms->addItem($gateways);
-        }
-    }
-
     public function setButtons()
     {
         $this->setButton('edit', $this->canEdit, [

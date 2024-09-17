@@ -69,27 +69,6 @@ class ListView extends TemplatesListView
         ];
     }
 
-    public static function onSourceLoad()
-    {
-        parent::onSourceLoad();
-        if (parent::$navigation) {
-            $settings = Navigation::getByName('settings');
-            if (!$sms = Navigation::getByName('settings/sms')) {
-                $sms = new MenuItem('sms');
-                $sms->setTitle(t('settings.sms'));
-                $sms->setIcon('fa fa-envelope');
-                if ($settings) {
-                    $settings->addItem($sms);
-                }
-            }
-            $templates = new MenuItem('templates');
-            $templates->setTitle(t('settings.sms.templates'));
-            $templates->setURL(userpanel\url('settings/sms/templates'));
-            $templates->setIcon('fa fa-file-text-o');
-            $sms->addItem($templates);
-        }
-    }
-
     public function setButtons()
     {
         $this->setButton('edit', $this->canEdit, [

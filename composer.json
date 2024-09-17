@@ -18,14 +18,8 @@
             "packages\\sms\\": [
                 "libraries/"
             ],
-            "themes\\clipone\\Events\\": [
-                "frontend/libraries/Events/"
-            ],
-            "themes\\clipone\\Views\\": [
-                "frontend/libraries/Views/"
-            ],
-            "themes\\clipone\\Views\\SMS\\": [
-                "frontend/Views"
+            "themes\\clipone\\": [
+                "frontend/src/"
             ]
         }
     }
