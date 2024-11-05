@@ -1,11 +1,12 @@
 {
-  "dependencies": {
-    "jquery": "^3.2.1",
-    "jquery-ui": "^1.12.1",
-    "bootstrap": "^3.3.7",
-    "jquery-validation": "^1.16.0",
-    "bootstrap-inputmsg": "^1.0.0",
-    "select2": "^4.0.3",
-    "webuilder": "^1.0.6"
-  }
+	"name": "jalno-sms-frontend",
+	"dependencies": {
+		"jquery": "^3.2.1",
+		"jquery-ui": "^1.12.1",
+		"bootstrap": "^3.3.7",
+		"jquery-validation": "^1.16.0",
+		"bootstrap-inputmsg": "^1.0.0",
+		"select2": "^4.0.3",
+		"webuilder": "^1.0.6"
+	}
 }
