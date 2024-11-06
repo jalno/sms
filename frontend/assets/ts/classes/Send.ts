@@ -1,7 +1,8 @@
-import "jquery-ui/ui/widgets/autocomplete.js";
+import "jquery-ui/dist/jquery-ui.js";
 import "jquery-validation";
 import {Router, webuilder} from "webuilder";
 import "webuilder"
+
 interface user{
 	id:number;
 	name:string;
