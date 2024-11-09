@@ -150,7 +150,7 @@ class SMS extends Controller
         return $this->response;
     }
 
-    public function get($name)
+    public function get()
     {
         Authorization::haveOrFail('get_list');
         $view = View::byName(Views\Get\ListView::class);
